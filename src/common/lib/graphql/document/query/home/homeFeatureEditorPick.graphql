@@ -1,0 +1,19 @@
+query homeFeaturedEditorPick {
+  homePage {
+    data {
+      id
+      attributes {
+        featuredSection {
+          id
+          editor_picks {
+            data {
+              ... on ArticleEntity {
+                ...ArticleList
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

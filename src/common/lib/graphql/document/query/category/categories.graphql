@@ -1,0 +1,14 @@
+query categories(
+  $filters: CategoryFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+  $publicationState: PublicationState = LIVE
+  $includeLayout: Boolean = false
+) {
+  categories(filters: $filters, pagination: $pagination, sort: $sort, publicationState: $publicationState) {
+    data {
+      ...CategoryFragment
+    }
+  }
+  
+}

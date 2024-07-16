@@ -1,0 +1,10 @@
+mutation subscribeNews($id: ID!) {
+  subscribeNewsletter(id: $id) {
+    data {
+      id
+      email
+      createdAt
+      updatedAt
+    }
+  }
+}

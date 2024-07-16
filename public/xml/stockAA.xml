@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<TimeStamp>2023-12-06 11:38:56</TimeStamp>
+	<Real>0</Real>
+	<Quote>
+		<ID>1</ID>
+		<Symbol>00001</Symbol>
+		<QuoteType>S</QuoteType>
+		<Desp><![CDATA[長和]]></Desp>
+		<IndustryDesp><![CDATA[綜合企業]]></IndustryDesp>
+		<NomType>N</NomType>
+		<BidSpread>0.050</BidSpread>
+		<AskSpread>0.050</AskSpread>
+		<Last>39.800</Last>
+		<Bid>39.750</Bid>
+		<Ask>39.800</Ask>
+		<Open>39.550</Open>
+		<PrevClose>39.650</PrevClose>
+		<High>40.200</High>
+		<Low>39.450</Low>
+		<Volume>2529863</Volume>
+		<Turnover>100704643</Turnover>
+		<EPS>9.570</EPS>
+		<Yield>7.352</Yield>
+		<PERatio>4.159</PERatio>
+		<Dividend>2.926</Dividend>
+		<MarketCap>152435592000.000</MarketCap>
+		<LotSize>500</LotSize>
+		<Moneyness />
+		<OutstandingQty>0</OutstandingQty>
+		<OutstandingPct>0</OutstandingPct>
+		<Strike />
+		<LinkID />
+		<Issuer />
+		<WarrantType />
+		<UnderlyingName />
+		<UnderlyingPrice />
+		<UnderlyingPrevClose />
+		<ExpDate></ExpDate>
+		<LastTradingDate></LastTradingDate>
+		<Premium />
+		<EntitlementRatio />
+		<Gearing />
+		<EffGearing />
+		<Delta />
+		<ImpVol />
+		<Suspension>N</Suspension>
+		<MarketID>1</MarketID>
+		<Currency>HKD</Currency>
+		<Change>0.150</Change>
+		<PctChange>0.378%</PctChange>
+		<AAMarketID />
+		<CallLevel />
+		<SpotPrice_CallLevel />
+		<Pct_SpotPrice_CallLevel />
+		<WeekHigh52W>54.550</WeekHigh52W>
+		<WeekLow52W>38.350</WeekLow52W>
+		<LastUpdate>2023-12-05 13:41:38</LastUpdate>
+	</Quote>
+</Root>

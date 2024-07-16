@@ -1,0 +1,13 @@
+.blogger-card-image {
+  @apply rounded-full hover:border-4 hover:border-[#EEB9B9] transition-colors duration-500 w-[84px] h-[84px] lg:w-[100px] lg:h-[100px];
+}
+
+.blogger-card {
+  .h5 {
+    @apply font-bold bg-black;
+  }
+}
+
+.blogger-name {
+  @apply font-bold text-center xl:text-start;
+}

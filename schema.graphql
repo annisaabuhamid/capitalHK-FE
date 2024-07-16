@@ -1,0 +1,2533 @@
+type AdBanner {
+  ad_unit_path: String!
+  createdAt: DateTime
+  name: String!
+  publishedAt: DateTime
+  size_mapping: String!
+  updatedAt: DateTime
+}
+
+type AdBannerEntity {
+  attributes: AdBanner
+  id: ID
+}
+
+type AdBannerEntityResponse {
+  data: AdBannerEntity
+}
+
+type AdBannerEntityResponseCollection {
+  data: [AdBannerEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input AdBannerFiltersInput {
+  ad_unit_path: StringFilterInput
+  and: [AdBannerFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: AdBannerFiltersInput
+  or: [AdBannerFiltersInput]
+  publishedAt: DateTimeFilterInput
+  sitemap_exclude: BooleanFilterInput
+  size_mapping: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input AdBannerInput {
+  ad_unit_path: String
+  name: String
+  publishedAt: DateTime
+  sitemap_exclude: Boolean
+  size_mapping: String
+}
+
+type Article {
+  Interviewee: ComponentArticleInterviewee
+  ad_banner_side: AdBannerEntityResponse
+  blocks: [ArticleBlocksDynamicZone]
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryRelationResponseCollection
+  content: String
+  createdAt: DateTime
+  editor: EditorEntityResponse
+  editorSelect: Boolean
+  hideKeyVisual: Boolean
+  keyVisualHorizontal: UploadFileEntityResponse!
+  keyVisualSquare: UploadFileEntityResponse
+  keyVisualVertical: UploadFileEntityResponse
+  layout: ENUM_ARTICLE_LAYOUT
+  otherEventArticles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  password: String
+  publishedAt: DateTime
+  publishedDate: Date!
+  relatedArticles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  seo: ComponentSharedSeo
+  sidenote: String
+  slug: String!
+  stockQuote: String
+  tags(filters: TagFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TagRelationResponseCollection
+  title: String!
+  updatedAt: DateTime
+  users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+  wp_id: Int
+}
+
+union ArticleBlocksDynamicZone = ComponentArticleEmbedInstagram | ComponentArticleEmbedVideo | ComponentArticleFaq | ComponentArticleImage | ComponentArticleImageCarousel | ComponentArticleImageGallery | ComponentArticleInfoBox | ComponentArticleListicleTitle | ComponentArticlePictureWithTag | ComponentArticlePrizeList | ComponentArticleProductList | ComponentArticleProductRate | ComponentArticleProductReview | ComponentArticleQuestionAnswer | ComponentArticleQuestionAnswer2Columns | ComponentArticleRichText | ComponentArticleTipsBox | ComponentArticleVideo | Error
+
+scalar ArticleBlocksDynamicZoneInput
+
+type ArticleEntity {
+  attributes: Article
+  id: ID
+}
+
+type ArticleEntityResponse {
+  data: ArticleEntity
+}
+
+type ArticleEntityResponseCollection {
+  data: [ArticleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ArticleFiltersInput {
+  Interviewee: ComponentArticleIntervieweeFiltersInput
+  ad_banner_side: AdBannerFiltersInput
+  and: [ArticleFiltersInput]
+  categories: CategoryFiltersInput
+  content: StringFilterInput
+  createdAt: DateTimeFilterInput
+  editor: EditorFiltersInput
+  editorSelect: BooleanFilterInput
+  hideKeyVisual: BooleanFilterInput
+  id: IDFilterInput
+  layout: StringFilterInput
+  not: ArticleFiltersInput
+  or: [ArticleFiltersInput]
+  otherEventArticles: ArticleFiltersInput
+  password: StringFilterInput
+  publishedAt: DateTimeFilterInput
+  publishedDate: DateFilterInput
+  relatedArticles: ArticleFiltersInput
+  seo: ComponentSharedSeoFiltersInput
+  sidenote: StringFilterInput
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  stockQuote: StringFilterInput
+  tags: TagFiltersInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  users: UsersPermissionsUserFiltersInput
+  wp_id: IntFilterInput
+}
+
+input ArticleInput {
+  Interviewee: ComponentArticleIntervieweeInput
+  ad_banner_side: ID
+  blocks: [ArticleBlocksDynamicZoneInput!]
+  categories: [ID]
+  content: String
+  editor: ID
+  editorSelect: Boolean
+  hideKeyVisual: Boolean
+  keyVisualHorizontal: ID
+  keyVisualSquare: ID
+  keyVisualVertical: ID
+  layout: ENUM_ARTICLE_LAYOUT
+  otherEventArticles: [ID]
+  password: String
+  publishedAt: DateTime
+  publishedDate: Date
+  relatedArticles: [ID]
+  seo: ComponentSharedSeoInput
+  sidenote: String
+  sitemap_exclude: Boolean
+  slug: String
+  stockQuote: String
+  tags: [ID]
+  title: String
+  users: [ID]
+  wp_id: Int
+}
+
+type ArticleRelationResponseCollection {
+  data: [ArticleEntity!]!
+}
+
+input BookmarkInput {
+  id: ID!
+  operation: BookmarkOperation!
+  type: BookmarkType!
+}
+
+enum BookmarkOperation {
+  insert
+  remove
+}
+
+type BookmarkPayload {
+  articles: [Int]
+  editors: [Int]
+  information_boxes: [Int]
+}
+
+enum BookmarkType {
+  articles
+  editors
+  information_boxes
+}
+
+input BooleanFilterInput {
+  and: [Boolean]
+  between: [Boolean]
+  contains: Boolean
+  containsi: Boolean
+  endsWith: Boolean
+  eq: Boolean
+  eqi: Boolean
+  gt: Boolean
+  gte: Boolean
+  in: [Boolean]
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  nei: Boolean
+  not: BooleanFilterInput
+  notContains: Boolean
+  notContainsi: Boolean
+  notIn: [Boolean]
+  notNull: Boolean
+  null: Boolean
+  or: [Boolean]
+  startsWith: Boolean
+}
+
+type BossDiary {
+  createdAt: DateTime
+  description: String!
+  name: String!
+  portrait: UploadFileEntityResponse!
+  updatedAt: DateTime
+  url: String
+}
+
+type BossDiaryEntity {
+  attributes: BossDiary
+  id: ID
+}
+
+type BossDiaryEntityResponse {
+  data: BossDiaryEntity
+}
+
+input BossDiaryInput {
+  description: String
+  name: String
+  portrait: ID
+  sitemap_exclude: Boolean
+  url: String
+}
+
+type Category {
+  ListingOrder: Int
+  Topic: ComponentArticleTopic
+  ad_banner_in_between: AdBannerEntityResponse
+  ad_banner_side: AdBannerEntityResponse
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  bloggerList(filters: EditorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): EditorRelationResponseCollection
+  createdAt: DateTime
+  editorPicks(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  layout: ENUM_CATEGORY_LAYOUT
+  name: String!
+  parentCategory: CategoryEntityResponse
+  pinArticle: ArticleEntityResponse
+  publishedAt: DateTime
+  recommendArticles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  seo: ComponentSharedSeo
+  slug: String!
+  updatedAt: DateTime
+}
+
+type CategoryEntity {
+  attributes: Category
+  id: ID
+}
+
+type CategoryEntityResponse {
+  data: CategoryEntity
+}
+
+type CategoryEntityResponseCollection {
+  data: [CategoryEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input CategoryFiltersInput {
+  ListingOrder: IntFilterInput
+  Topic: ComponentArticleTopicFiltersInput
+  ad_banner_in_between: AdBannerFiltersInput
+  ad_banner_side: AdBannerFiltersInput
+  and: [CategoryFiltersInput]
+  articles: ArticleFiltersInput
+  bloggerList: EditorFiltersInput
+  createdAt: DateTimeFilterInput
+  editorPicks: ArticleFiltersInput
+  id: IDFilterInput
+  layout: StringFilterInput
+  name: StringFilterInput
+  not: CategoryFiltersInput
+  or: [CategoryFiltersInput]
+  parentCategory: CategoryFiltersInput
+  pinArticle: ArticleFiltersInput
+  publishedAt: DateTimeFilterInput
+  recommendArticles: ArticleFiltersInput
+  seo: ComponentSharedSeoFiltersInput
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input CategoryInput {
+  ListingOrder: Int
+  Topic: ComponentArticleTopicInput
+  ad_banner_in_between: ID
+  ad_banner_side: ID
+  articles: [ID]
+  bloggerList: [ID]
+  editorPicks: [ID]
+  layout: ENUM_CATEGORY_LAYOUT
+  name: String
+  parentCategory: ID
+  pinArticle: ID
+  publishedAt: DateTime
+  recommendArticles: [ID]
+  seo: ComponentSharedSeoInput
+  sitemap_exclude: Boolean
+  slug: String
+}
+
+type CategoryRelationResponseCollection {
+  data: [CategoryEntity!]!
+}
+
+type ComponentArticleEditorPick {
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  id: ID!
+}
+
+type ComponentArticleEmbedInstagram {
+  URL: String!
+  id: ID!
+}
+
+type ComponentArticleEmbedVideo {
+  URL: String!
+  id: ID!
+  image: UploadFileEntityResponse!
+  name: String!
+}
+
+type ComponentArticleFaq {
+  faq(filters: ComponentArticleQuestionAnswerFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentArticleQuestionAnswer]
+  id: ID!
+}
+
+type ComponentArticleImage {
+  caption: String
+  id: ID!
+  image: UploadFileEntityResponse
+}
+
+type ComponentArticleImageCarousel {
+  ImageCarousel(filters: ComponentSharedImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedImage]
+  id: ID!
+}
+
+type ComponentArticleImageGallery {
+  ImageGallery(filters: ComponentSharedImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedImage]
+  id: ID!
+}
+
+type ComponentArticleImageWithContent {
+  content: String
+  id: ID!
+  image: UploadFileEntityResponse
+  showAtRightColumn: Boolean
+}
+
+type ComponentArticleInfoBox {
+  id: ID!
+  information_box: InformationBoxEntityResponse
+}
+
+type ComponentArticleInterviewee {
+  id: ID!
+  name: String!
+  portrait: UploadFileEntityResponse!
+  title: String!
+}
+
+input ComponentArticleIntervieweeFiltersInput {
+  and: [ComponentArticleIntervieweeFiltersInput]
+  name: StringFilterInput
+  not: ComponentArticleIntervieweeFiltersInput
+  or: [ComponentArticleIntervieweeFiltersInput]
+  title: StringFilterInput
+}
+
+input ComponentArticleIntervieweeInput {
+  id: ID
+  name: String
+  portrait: ID
+  title: String
+}
+
+type ComponentArticleListicleTitle {
+  Number: Int
+  Title: String
+  description: String
+  id: ID!
+}
+
+type ComponentArticlePictureWithTag {
+  Image: UploadFileEntityResponse
+  id: ID!
+  tags(filters: ComponentSharedTagFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedTag]
+}
+
+type ComponentArticlePrizeList {
+  id: ID!
+  prizeList(filters: ComponentCommonPrizeListFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonPrizeList]
+}
+
+type ComponentArticleProductList {
+  Products(filters: ComponentSharedProductsFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedProducts]
+  id: ID!
+}
+
+type ComponentArticleProductRate {
+  ProductRate(filters: ComponentCommonProductRateFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonProductRate]
+  id: ID!
+}
+
+type ComponentArticleProductReview {
+  ImageCarousel(filters: ComponentSharedImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedImage]
+  ListicleTitle: ComponentArticleListicleTitle
+  ProductRate(filters: ComponentCommonProductRateFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonProductRate]
+  id: ID!
+}
+
+type ComponentArticleQuestionAnswer {
+  Answer: String
+  Question: String
+  SubAnswer: String
+  id: ID!
+}
+
+type ComponentArticleQuestionAnswer2Columns {
+  QuestionAnswers(filters: ComponentArticleQuestionAnswerFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentArticleQuestionAnswer]
+  id: ID!
+  image: UploadFileEntityResponse
+  imageCaption: String
+  showAtRightColumn: Boolean
+}
+
+input ComponentArticleQuestionAnswerFiltersInput {
+  Answer: StringFilterInput
+  Question: StringFilterInput
+  SubAnswer: StringFilterInput
+  and: [ComponentArticleQuestionAnswerFiltersInput]
+  not: ComponentArticleQuestionAnswerFiltersInput
+  or: [ComponentArticleQuestionAnswerFiltersInput]
+}
+
+type ComponentArticleRichText {
+  id: ID!
+  richText: String
+}
+
+type ComponentArticleTipsBox {
+  description: String
+  id: ID!
+}
+
+type ComponentArticleTopic {
+  id: ID!
+  keyVisualHorizontal: UploadFileEntityResponse!
+}
+
+input ComponentArticleTopicFiltersInput {
+  and: [ComponentArticleTopicFiltersInput]
+  not: ComponentArticleTopicFiltersInput
+  or: [ComponentArticleTopicFiltersInput]
+}
+
+input ComponentArticleTopicInput {
+  id: ID
+  keyVisualHorizontal: ID
+}
+
+type ComponentArticleVideo {
+  id: ID!
+  image: UploadFileEntityResponse!
+  name: String
+  video: UploadFileEntityResponse!
+}
+
+type ComponentCommonLink {
+  id: ID!
+  label: String!
+  target: ENUM_COMPONENTCOMMONLINK_TARGET!
+  url: String!
+}
+
+input ComponentCommonLinkFiltersInput {
+  and: [ComponentCommonLinkFiltersInput]
+  label: StringFilterInput
+  not: ComponentCommonLinkFiltersInput
+  or: [ComponentCommonLinkFiltersInput]
+  target: StringFilterInput
+  url: StringFilterInput
+}
+
+input ComponentCommonLinkInput {
+  id: ID
+  label: String
+  target: ENUM_COMPONENTCOMMONLINK_TARGET
+  url: String
+}
+
+type ComponentCommonPrizeList {
+  companyLogo: UploadFileEntityResponse!
+  companyName: String
+  content1: String
+  content2: String
+  id: ID!
+  name: String!
+}
+
+input ComponentCommonPrizeListFiltersInput {
+  and: [ComponentCommonPrizeListFiltersInput]
+  companyName: StringFilterInput
+  content1: StringFilterInput
+  content2: StringFilterInput
+  name: StringFilterInput
+  not: ComponentCommonPrizeListFiltersInput
+  or: [ComponentCommonPrizeListFiltersInput]
+}
+
+type ComponentCommonProductRate {
+  Icon: ScoreEntityResponse
+  Label: String
+  id: ID!
+  score: Int
+}
+
+input ComponentCommonProductRateFiltersInput {
+  Icon: ScoreFiltersInput
+  Label: StringFilterInput
+  and: [ComponentCommonProductRateFiltersInput]
+  not: ComponentCommonProductRateFiltersInput
+  or: [ComponentCommonProductRateFiltersInput]
+  score: IntFilterInput
+}
+
+type ComponentCommonSingleArticle {
+  article: ArticleEntityResponse
+  id: ID!
+}
+
+type ComponentGlobalCustomPages {
+  PageLink(filters: ComponentCommonLinkFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonLink]
+  id: ID!
+}
+
+input ComponentGlobalCustomPagesInput {
+  PageLink: [ComponentCommonLinkInput]
+  id: ID
+}
+
+type ComponentGlobalMagazine {
+  ctaLabel: String!
+  description: String
+  id: ID!
+  magazineCover: UploadFileEntityResponse!
+  title: String!
+  url: String!
+}
+
+input ComponentGlobalMagazineInput {
+  ctaLabel: String
+  description: String
+  id: ID
+  magazineCover: ID
+  title: String
+  url: String
+}
+
+type ComponentGlobalSocialNetworks {
+  id: ID!
+  link(filters: ComponentCommonLinkFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentCommonLink]
+}
+
+input ComponentGlobalSocialNetworksInput {
+  id: ID
+  link: [ComponentCommonLinkInput]
+}
+
+type ComponentGlobalTags {
+  id: ID!
+  tags(filters: TagFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TagRelationResponseCollection
+}
+
+input ComponentGlobalTagsInput {
+  id: ID
+  tags: [ID]
+}
+
+type ComponentHomeBannerArticle {
+  article: ArticleEntityResponse
+  id: ID!
+}
+
+type ComponentHomeBannerImage {
+  id: ID!
+  image: UploadFileEntityResponse!
+  target: ENUM_COMPONENTHOMEBANNERIMAGE_TARGET
+  text: String!
+  url: String
+}
+
+type ComponentHomeBannerVideoMp4 {
+  id: ID!
+  media: UploadFileEntityResponse
+  text: String
+  video: UploadFileEntityResponse
+  videoPoster(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+}
+
+type ComponentHomeBannerVideoUrl {
+  id: ID!
+  media: UploadFileEntityResponse
+  text: String
+  url: String
+}
+
+type ComponentHomeCategoryColumn {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryRelationResponseCollection
+  id: ID!
+}
+
+input ComponentHomeCategoryColumnInput {
+  categories: [ID]
+  id: ID
+}
+
+type ComponentHomeCategoryFeature {
+  ad_banner_in_between: AdBannerEntityResponse
+  category: CategoryEntityResponse
+  id: ID!
+  pinArticle: ArticleEntityResponse
+}
+
+type ComponentHomeFeaturedSection {
+  ad_banner_side: AdBannerEntityResponse
+  editor_picks(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  id: ID!
+  popular_news(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+}
+
+input ComponentHomeFeaturedSectionInput {
+  ad_banner_side: ID
+  editor_picks: [ID]
+  id: ID
+  popular_news: [ID]
+}
+
+type ComponentHomeHomeBanner {
+  alternativeText: String
+  id: ID!
+  image: UploadFileEntityResponse!
+  mobileImage: UploadFileEntityResponse
+  target: ENUM_COMPONENTHOMEHOMEBANNER_TARGET
+  url: String!
+}
+
+input ComponentHomeHomeBannerInput {
+  alternativeText: String
+  id: ID
+  image: ID
+  mobileImage: ID
+  target: ENUM_COMPONENTHOMEHOMEBANNER_TARGET
+  url: String
+}
+
+type ComponentHomeTopic {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryRelationResponseCollection
+  id: ID!
+  name: String
+  url: String
+}
+
+input ComponentHomeTopicInput {
+  categories: [ID]
+  id: ID
+  name: String
+  url: String
+}
+
+type ComponentSharedImage {
+  description: String
+  id: ID!
+  image: UploadFileEntityResponse
+  title: String
+  url: String
+}
+
+input ComponentSharedImageFiltersInput {
+  and: [ComponentSharedImageFiltersInput]
+  description: StringFilterInput
+  not: ComponentSharedImageFiltersInput
+  or: [ComponentSharedImageFiltersInput]
+  title: StringFilterInput
+  url: StringFilterInput
+}
+
+type ComponentSharedMetaSocial {
+  description: String!
+  id: ID!
+  image: UploadFileEntityResponse
+  socialNetwork: ENUM_COMPONENTSHAREDMETASOCIAL_SOCIALNETWORK!
+  title: String!
+}
+
+input ComponentSharedMetaSocialFiltersInput {
+  and: [ComponentSharedMetaSocialFiltersInput]
+  description: StringFilterInput
+  not: ComponentSharedMetaSocialFiltersInput
+  or: [ComponentSharedMetaSocialFiltersInput]
+  socialNetwork: StringFilterInput
+  title: StringFilterInput
+}
+
+input ComponentSharedMetaSocialInput {
+  description: String
+  id: ID
+  image: ID
+  socialNetwork: ENUM_COMPONENTSHAREDMETASOCIAL_SOCIALNETWORK
+  title: String
+}
+
+type ComponentSharedProducts {
+  id: ID!
+  product: ProductEntityResponse
+}
+
+input ComponentSharedProductsFiltersInput {
+  and: [ComponentSharedProductsFiltersInput]
+  not: ComponentSharedProductsFiltersInput
+  or: [ComponentSharedProductsFiltersInput]
+  product: ProductFiltersInput
+}
+
+type ComponentSharedSeo {
+  canonicalURL: String
+  id: ID!
+  keywords: String
+  metaDescription: String!
+  metaImage: UploadFileEntityResponse
+  metaRobots: String
+  metaSocial(filters: ComponentSharedMetaSocialFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedMetaSocial]
+  metaTitle: String!
+  metaViewport: String
+  structuredData: JSON
+}
+
+input ComponentSharedSeoFiltersInput {
+  and: [ComponentSharedSeoFiltersInput]
+  canonicalURL: StringFilterInput
+  keywords: StringFilterInput
+  metaDescription: StringFilterInput
+  metaRobots: StringFilterInput
+  metaSocial: ComponentSharedMetaSocialFiltersInput
+  metaTitle: StringFilterInput
+  metaViewport: StringFilterInput
+  not: ComponentSharedSeoFiltersInput
+  or: [ComponentSharedSeoFiltersInput]
+  structuredData: JSONFilterInput
+}
+
+input ComponentSharedSeoInput {
+  canonicalURL: String
+  id: ID
+  keywords: String
+  metaDescription: String
+  metaImage: ID
+  metaRobots: String
+  metaSocial: [ComponentSharedMetaSocialInput]
+  metaTitle: String
+  metaViewport: String
+  structuredData: JSON
+}
+
+type ComponentSharedTag {
+  PositionX: Float
+  PositionY: Float
+  id: ID!
+  product: ProductEntityResponse
+}
+
+input ComponentSharedTagFiltersInput {
+  PositionX: FloatFilterInput
+  PositionY: FloatFilterInput
+  and: [ComponentSharedTagFiltersInput]
+  not: ComponentSharedTagFiltersInput
+  or: [ComponentSharedTagFiltersInput]
+  product: ProductFiltersInput
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+input DateFilterInput {
+  and: [Date]
+  between: [Date]
+  contains: Date
+  containsi: Date
+  endsWith: Date
+  eq: Date
+  eqi: Date
+  gt: Date
+  gte: Date
+  in: [Date]
+  lt: Date
+  lte: Date
+  ne: Date
+  nei: Date
+  not: DateFilterInput
+  notContains: Date
+  notContainsi: Date
+  notIn: [Date]
+  notNull: Boolean
+  null: Boolean
+  or: [Date]
+  startsWith: Date
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input DateTimeFilterInput {
+  and: [DateTime]
+  between: [DateTime]
+  contains: DateTime
+  containsi: DateTime
+  endsWith: DateTime
+  eq: DateTime
+  eqi: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  ne: DateTime
+  nei: DateTime
+  not: DateTimeFilterInput
+  notContains: DateTime
+  notContainsi: DateTime
+  notIn: [DateTime]
+  notNull: Boolean
+  null: Boolean
+  or: [DateTime]
+  startsWith: DateTime
+}
+
+enum ENUM_ARTICLE_LAYOUT {
+  Celebrity
+  Event
+  Generic
+}
+
+enum ENUM_CATEGORY_LAYOUT {
+  Blogger
+  First_Level
+  Second_Level
+  Third_Level
+}
+
+enum ENUM_COMPONENTCOMMONLINK_TARGET {
+  blank
+  self
+}
+
+enum ENUM_COMPONENTHOMEBANNERIMAGE_TARGET {
+  blank
+  parent
+  self
+  top
+}
+
+enum ENUM_COMPONENTHOMEHOMEBANNER_TARGET {
+  blank
+  parent
+  self
+  top
+}
+
+enum ENUM_COMPONENTSHAREDMETASOCIAL_SOCIALNETWORK {
+  Facebook
+  Twitter
+}
+
+enum ENUM_MENUSMENUITEM_TARGET {
+  blank
+  parent
+  self
+  top
+}
+
+enum ENUM_ROUTE_TYPE {
+  Article
+  Category
+  Redirect
+}
+
+enum ENUM_SITEMAPSITEMAP_TYPE {
+  default_hreflang
+  index
+}
+
+enum ENUM_USERSPERMISSIONSUSER_AREACODE {
+  China_86
+  Hong_Kong_852
+  Macao_853
+  Singapore_65
+  Taiwan_886
+}
+
+enum ENUM_USERSPERMISSIONSUSER_SALUTATION {
+  Dr
+  Miss
+  Mr
+  Mrs
+  Ms
+  Prof
+}
+
+type Editor {
+  avatar: UploadFileEntityResponse!
+  biography: String
+  category: CategoryEntityResponse
+  createdAt: DateTime
+  isBlogger: Boolean
+  name: String!
+  publishedAt: DateTime
+  slug: String!
+  title: String
+  updatedAt: DateTime
+  users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+  wp_id: Int
+}
+
+type EditorEntity {
+  attributes: Editor
+  id: ID
+}
+
+type EditorEntityResponse {
+  data: EditorEntity
+}
+
+type EditorEntityResponseCollection {
+  data: [EditorEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input EditorFiltersInput {
+  and: [EditorFiltersInput]
+  biography: StringFilterInput
+  category: CategoryFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  isBlogger: BooleanFilterInput
+  name: StringFilterInput
+  not: EditorFiltersInput
+  or: [EditorFiltersInput]
+  publishedAt: DateTimeFilterInput
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  users: UsersPermissionsUserFiltersInput
+  wp_id: IntFilterInput
+}
+
+input EditorInput {
+  avatar: ID
+  biography: String
+  category: ID
+  isBlogger: Boolean
+  name: String
+  publishedAt: DateTime
+  sitemap_exclude: Boolean
+  slug: String
+  title: String
+  users: [ID]
+  wp_id: Int
+}
+
+type EditorListing {
+  createdAt: DateTime
+  editors(filters: EditorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): EditorRelationResponseCollection
+  updatedAt: DateTime
+}
+
+type EditorListingEntity {
+  attributes: EditorListing
+  id: ID
+}
+
+type EditorListingEntityResponse {
+  data: EditorListingEntity
+}
+
+input EditorListingInput {
+  editors: [ID]
+  sitemap_exclude: Boolean
+}
+
+type EditorRelationResponseCollection {
+  data: [EditorEntity!]!
+}
+
+type Error {
+  code: String!
+  message: String
+}
+
+input FileInfoInput {
+  alternativeText: String
+  caption: String
+  name: String
+}
+
+input FloatFilterInput {
+  and: [Float]
+  between: [Float]
+  contains: Float
+  containsi: Float
+  endsWith: Float
+  eq: Float
+  eqi: Float
+  gt: Float
+  gte: Float
+  in: [Float]
+  lt: Float
+  lte: Float
+  ne: Float
+  nei: Float
+  not: FloatFilterInput
+  notContains: Float
+  notContainsi: Float
+  notIn: [Float]
+  notNull: Boolean
+  null: Boolean
+  or: [Float]
+  startsWith: Float
+}
+
+union GenericMorph = AdBanner | Article | BossDiary | Category | ComponentArticleEditorPick | ComponentArticleEmbedInstagram | ComponentArticleEmbedVideo | ComponentArticleFaq | ComponentArticleImage | ComponentArticleImageCarousel | ComponentArticleImageGallery | ComponentArticleImageWithContent | ComponentArticleInfoBox | ComponentArticleInterviewee | ComponentArticleListicleTitle | ComponentArticlePictureWithTag | ComponentArticlePrizeList | ComponentArticleProductList | ComponentArticleProductRate | ComponentArticleProductReview | ComponentArticleQuestionAnswer | ComponentArticleQuestionAnswer2Columns | ComponentArticleRichText | ComponentArticleTipsBox | ComponentArticleTopic | ComponentArticleVideo | ComponentCommonLink | ComponentCommonPrizeList | ComponentCommonProductRate | ComponentCommonSingleArticle | ComponentGlobalCustomPages | ComponentGlobalMagazine | ComponentGlobalSocialNetworks | ComponentGlobalTags | ComponentHomeBannerArticle | ComponentHomeBannerImage | ComponentHomeBannerVideoMp4 | ComponentHomeBannerVideoUrl | ComponentHomeCategoryColumn | ComponentHomeCategoryFeature | ComponentHomeFeaturedSection | ComponentHomeHomeBanner | ComponentHomeTopic | ComponentSharedImage | ComponentSharedMetaSocial | ComponentSharedProducts | ComponentSharedSeo | ComponentSharedTag | Editor | EditorListing | Global | HomePage | I18NLocale | InformationBox | InterestedArea | Interview | MenusMenu | MenusMenuItem | Newsletter | Page | Product | PublisherAction | RelatedArticle | Route | Score | SitemapSitemap | SitemapSitemapCache | Tag | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+
+type Global {
+  CustomPages: ComponentGlobalCustomPages
+  Magazine: ComponentGlobalMagazine
+  Tags: ComponentGlobalTags
+  companyLogo: UploadFileEntityResponse!
+  copyright: String!
+  createdAt: DateTime
+  logo: UploadFileEntityResponse!
+  shortIntroduction: String
+  socialNetworks: ComponentGlobalSocialNetworks
+  updatedAt: DateTime
+}
+
+type GlobalEntity {
+  attributes: Global
+  id: ID
+}
+
+type GlobalEntityResponse {
+  data: GlobalEntity
+}
+
+input GlobalInput {
+  CustomPages: ComponentGlobalCustomPagesInput
+  Magazine: ComponentGlobalMagazineInput
+  Tags: ComponentGlobalTagsInput
+  companyLogo: ID
+  copyright: String
+  logo: ID
+  shortIntroduction: String
+  sitemap_exclude: Boolean
+  socialNetworks: ComponentGlobalSocialNetworksInput
+}
+
+type HomePage {
+  Carousel: [HomePageCarouselDynamicZone]!
+  CategoryColumn: ComponentHomeCategoryColumn
+  CategoryFeature: [HomePageCategoryFeatureDynamicZone]
+  ExpertReviewUrl: String
+  HomeTopBanner: ComponentHomeHomeBanner
+  PageTitle: String!
+  Topic: ComponentHomeTopic
+  createdAt: DateTime
+  featuredSection: ComponentHomeFeaturedSection!
+  seo: ComponentSharedSeo
+  updatedAt: DateTime
+}
+
+union HomePageCarouselDynamicZone = ComponentHomeBannerArticle | ComponentHomeBannerImage | ComponentHomeBannerVideoMp4 | ComponentHomeBannerVideoUrl | Error
+
+scalar HomePageCarouselDynamicZoneInput
+
+union HomePageCategoryFeatureDynamicZone = ComponentHomeCategoryFeature | Error
+
+scalar HomePageCategoryFeatureDynamicZoneInput
+
+type HomePageEntity {
+  attributes: HomePage
+  id: ID
+}
+
+type HomePageEntityResponse {
+  data: HomePageEntity
+}
+
+input HomePageInput {
+  Carousel: [HomePageCarouselDynamicZoneInput!]
+  CategoryColumn: ComponentHomeCategoryColumnInput
+  CategoryFeature: [HomePageCategoryFeatureDynamicZoneInput!]
+  ExpertReviewUrl: String
+  HomeTopBanner: ComponentHomeHomeBannerInput
+  PageTitle: String
+  Topic: ComponentHomeTopicInput
+  featuredSection: ComponentHomeFeaturedSectionInput
+  seo: ComponentSharedSeoInput
+  sitemap_exclude: Boolean
+}
+
+type I18NLocale {
+  code: String
+  createdAt: DateTime
+  name: String
+  updatedAt: DateTime
+}
+
+type I18NLocaleEntity {
+  attributes: I18NLocale
+  id: ID
+}
+
+type I18NLocaleEntityResponse {
+  data: I18NLocaleEntity
+}
+
+type I18NLocaleEntityResponseCollection {
+  data: [I18NLocaleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input I18NLocaleFiltersInput {
+  and: [I18NLocaleFiltersInput]
+  code: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: I18NLocaleFiltersInput
+  or: [I18NLocaleFiltersInput]
+  updatedAt: DateTimeFilterInput
+}
+
+input IDFilterInput {
+  and: [ID]
+  between: [ID]
+  contains: ID
+  containsi: ID
+  endsWith: ID
+  eq: ID
+  eqi: ID
+  gt: ID
+  gte: ID
+  in: [ID]
+  lt: ID
+  lte: ID
+  ne: ID
+  nei: ID
+  not: IDFilterInput
+  notContains: ID
+  notContainsi: ID
+  notIn: [ID]
+  notNull: Boolean
+  null: Boolean
+  or: [ID]
+  startsWith: ID
+}
+
+type InformationBox {
+  createdAt: DateTime
+  description: String
+  hours: String
+  location: String
+  phone: String
+  publishedAt: DateTime
+  remark: String
+  title: String
+  updatedAt: DateTime
+  users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type InformationBoxEntity {
+  attributes: InformationBox
+  id: ID
+}
+
+type InformationBoxEntityResponse {
+  data: InformationBoxEntity
+}
+
+type InformationBoxEntityResponseCollection {
+  data: [InformationBoxEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input InformationBoxFiltersInput {
+  and: [InformationBoxFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  hours: StringFilterInput
+  id: IDFilterInput
+  location: StringFilterInput
+  not: InformationBoxFiltersInput
+  or: [InformationBoxFiltersInput]
+  phone: StringFilterInput
+  publishedAt: DateTimeFilterInput
+  remark: StringFilterInput
+  sitemap_exclude: BooleanFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  users: UsersPermissionsUserFiltersInput
+}
+
+input InformationBoxInput {
+  description: String
+  hours: String
+  location: String
+  phone: String
+  publishedAt: DateTime
+  remark: String
+  sitemap_exclude: Boolean
+  title: String
+  users: [ID]
+}
+
+type InformationBoxRelationResponseCollection {
+  data: [InformationBoxEntity!]!
+}
+
+input IntFilterInput {
+  and: [Int]
+  between: [Int]
+  contains: Int
+  containsi: Int
+  endsWith: Int
+  eq: Int
+  eqi: Int
+  gt: Int
+  gte: Int
+  in: [Int]
+  lt: Int
+  lte: Int
+  ne: Int
+  nei: Int
+  not: IntFilterInput
+  notContains: Int
+  notContainsi: Int
+  notIn: [Int]
+  notNull: Boolean
+  null: Boolean
+  or: [Int]
+  startsWith: Int
+}
+
+type InterestedArea {
+  Title: String
+  createdAt: DateTime
+  publishedAt: DateTime
+  updatedAt: DateTime
+  users_permissions_users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type InterestedAreaEntity {
+  attributes: InterestedArea
+  id: ID
+}
+
+type InterestedAreaEntityResponse {
+  data: InterestedAreaEntity
+}
+
+type InterestedAreaEntityResponseCollection {
+  data: [InterestedAreaEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input InterestedAreaFiltersInput {
+  Title: StringFilterInput
+  and: [InterestedAreaFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: InterestedAreaFiltersInput
+  or: [InterestedAreaFiltersInput]
+  publishedAt: DateTimeFilterInput
+  sitemap_exclude: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+  users_permissions_users: UsersPermissionsUserFiltersInput
+}
+
+input InterestedAreaInput {
+  Title: String
+  publishedAt: DateTime
+  sitemap_exclude: Boolean
+  users_permissions_users: [ID]
+}
+
+type InterestedAreaRelationResponseCollection {
+  data: [InterestedAreaEntity!]!
+}
+
+type Interview {
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  createdAt: DateTime
+  name: String!
+  updatedAt: DateTime
+  url: String
+}
+
+type InterviewEntity {
+  attributes: Interview
+  id: ID
+}
+
+type InterviewEntityResponse {
+  data: InterviewEntity
+}
+
+input InterviewInput {
+  articles: [ID]
+  name: String
+  sitemap_exclude: Boolean
+  url: String
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input JSONFilterInput {
+  and: [JSON]
+  between: [JSON]
+  contains: JSON
+  containsi: JSON
+  endsWith: JSON
+  eq: JSON
+  eqi: JSON
+  gt: JSON
+  gte: JSON
+  in: [JSON]
+  lt: JSON
+  lte: JSON
+  ne: JSON
+  nei: JSON
+  not: JSONFilterInput
+  notContains: JSON
+  notContainsi: JSON
+  notIn: [JSON]
+  notNull: Boolean
+  null: Boolean
+  or: [JSON]
+  startsWith: JSON
+}
+
+type MenusMenu {
+  createdAt: DateTime
+  items(filters: MenusMenuItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MenusMenuItemRelationResponseCollection
+  slug: String!
+  title: String!
+  updatedAt: DateTime
+}
+
+type MenusMenuEntity {
+  attributes: MenusMenu
+  id: ID
+}
+
+type MenusMenuEntityResponse {
+  data: MenusMenuEntity
+}
+
+type MenusMenuEntityResponseCollection {
+  data: [MenusMenuEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input MenusMenuFiltersInput {
+  and: [MenusMenuFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  items: MenusMenuItemFiltersInput
+  not: MenusMenuFiltersInput
+  or: [MenusMenuFiltersInput]
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input MenusMenuInput {
+  items: [ID]
+  sitemap_exclude: Boolean
+  slug: String
+  title: String
+}
+
+type MenusMenuItem {
+  createdAt: DateTime
+  order: Int
+  parent: MenusMenuItemEntityResponse
+  root_menu: MenusMenuEntityResponse!
+  target: ENUM_MENUSMENUITEM_TARGET
+  title: String!
+  updatedAt: DateTime
+  url: String
+}
+
+type MenusMenuItemEntity {
+  attributes: MenusMenuItem
+  id: ID
+}
+
+type MenusMenuItemEntityResponse {
+  data: MenusMenuItemEntity
+}
+
+type MenusMenuItemEntityResponseCollection {
+  data: [MenusMenuItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input MenusMenuItemFiltersInput {
+  and: [MenusMenuItemFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: MenusMenuItemFiltersInput
+  or: [MenusMenuItemFiltersInput]
+  order: IntFilterInput
+  parent: MenusMenuItemFiltersInput
+  root_menu: MenusMenuFiltersInput
+  sitemap_exclude: BooleanFilterInput
+  target: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+}
+
+input MenusMenuItemInput {
+  order: Int
+  parent: ID
+  root_menu: ID
+  sitemap_exclude: Boolean
+  target: ENUM_MENUSMENUITEM_TARGET
+  title: String
+  url: String
+}
+
+type MenusMenuItemRelationResponseCollection {
+  data: [MenusMenuItemEntity!]!
+}
+
+type Mutation {
+  UsersPermissionsUpdateMe(input: UsersPermissionsUpdateMeInput): UsersPermissionsUpdateMePayload
+  bookmark(input: BookmarkInput): BookmarkPayload
+
+  """Change user password. Confirm with the current password."""
+  changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  createAdBanner(data: AdBannerInput!): AdBannerEntityResponse
+  createArticle(data: ArticleInput!): ArticleEntityResponse
+  createCategory(data: CategoryInput!): CategoryEntityResponse
+  createEditor(data: EditorInput!): EditorEntityResponse
+  createInformationBox(data: InformationBoxInput!): InformationBoxEntityResponse
+  createInterestedArea(data: InterestedAreaInput!): InterestedAreaEntityResponse
+  createMenusMenu(data: MenusMenuInput!): MenusMenuEntityResponse
+  createMenusMenuItem(data: MenusMenuItemInput!): MenusMenuItemEntityResponse
+  createNewsletter(data: NewsletterInput!): NewsletterEntityResponse
+  createPage(data: PageInput!): PageEntityResponse
+  createProduct(data: ProductInput!): ProductEntityResponse
+  createPublisherAction(data: PublisherActionInput!): PublisherActionEntityResponse
+  createRoute(data: RouteInput!): RouteEntityResponse
+  createScore(data: ScoreInput!): ScoreEntityResponse
+  createSitemapSitemap(data: SitemapSitemapInput!): SitemapSitemapEntityResponse
+  createSitemapSitemapCache(data: SitemapSitemapCacheInput!): SitemapSitemapCacheEntityResponse
+  createTag(data: TagInput!): TagEntityResponse
+  createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
+  createUploadFolder(data: UploadFolderInput!): UploadFolderEntityResponse
+
+  """Create a new role"""
+  createUsersPermissionsRole(data: UsersPermissionsRoleInput!): UsersPermissionsCreateRolePayload
+
+  """Create a new user"""
+  createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
+  deleteAdBanner(id: ID!): AdBannerEntityResponse
+  deleteArticle(id: ID!): ArticleEntityResponse
+  deleteBossDiary: BossDiaryEntityResponse
+  deleteCategory(id: ID!): CategoryEntityResponse
+  deleteEditor(id: ID!): EditorEntityResponse
+  deleteEditorListing: EditorListingEntityResponse
+  deleteGlobal: GlobalEntityResponse
+  deleteHomePage: HomePageEntityResponse
+  deleteInformationBox(id: ID!): InformationBoxEntityResponse
+  deleteInterestedArea(id: ID!): InterestedAreaEntityResponse
+  deleteInterview: InterviewEntityResponse
+  deleteMenusMenu(id: ID!): MenusMenuEntityResponse
+  deleteMenusMenuItem(id: ID!): MenusMenuItemEntityResponse
+  deleteNewsletter(id: ID!): NewsletterEntityResponse
+  deletePage(id: ID!): PageEntityResponse
+  deleteProduct(id: ID!): ProductEntityResponse
+  deletePublisherAction(id: ID!): PublisherActionEntityResponse
+  deleteRelatedArticle: RelatedArticleEntityResponse
+  deleteRoute(id: ID!): RouteEntityResponse
+  deleteScore(id: ID!): ScoreEntityResponse
+  deleteSitemapSitemap(id: ID!): SitemapSitemapEntityResponse
+  deleteSitemapSitemapCache(id: ID!): SitemapSitemapCacheEntityResponse
+  deleteTag(id: ID!): TagEntityResponse
+  deleteUploadFile(id: ID!): UploadFileEntityResponse
+  deleteUploadFolder(id: ID!): UploadFolderEntityResponse
+
+  """Delete an existing role"""
+  deleteUsersPermissionsRole(id: ID!): UsersPermissionsDeleteRolePayload
+
+  """Delete an existing user"""
+  deleteUsersPermissionsUser(id: ID!): UsersPermissionsUserEntityResponse!
+
+  """Confirm an email users email address"""
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+
+  """Request a reset password token"""
+  forgotPassword(email: String!): UsersPermissionsPasswordPayload
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  multipleUpload(field: String, files: [Upload]!, ref: String, refId: ID): [UploadFileEntityResponse]!
+
+  """Register a user"""
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  removeFile(id: ID!): UploadFileEntityResponse
+
+  """
+  Reset user password. Confirm with a code (resetToken from forgotPassword)
+  """
+  resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  subscribeNewsletter(data: NewsletterSubscriptionInput, id: ID): NewsletterSubscriptionResponse
+  unsubscribeNewsletter(data: NewsletterSubscriptionInput, id: ID): NewsletterSubscriptionResponse
+  updateAdBanner(data: AdBannerInput!, id: ID!): AdBannerEntityResponse
+  updateArticle(data: ArticleInput!, id: ID!): ArticleEntityResponse
+  updateBossDiary(data: BossDiaryInput!): BossDiaryEntityResponse
+  updateCategory(data: CategoryInput!, id: ID!): CategoryEntityResponse
+  updateEditor(data: EditorInput!, id: ID!): EditorEntityResponse
+  updateEditorListing(data: EditorListingInput!): EditorListingEntityResponse
+  updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
+  updateGlobal(data: GlobalInput!): GlobalEntityResponse
+  updateHomePage(data: HomePageInput!): HomePageEntityResponse
+  updateInformationBox(data: InformationBoxInput!, id: ID!): InformationBoxEntityResponse
+  updateInterestedArea(data: InterestedAreaInput!, id: ID!): InterestedAreaEntityResponse
+  updateInterview(data: InterviewInput!): InterviewEntityResponse
+  updateMenusMenu(data: MenusMenuInput!, id: ID!): MenusMenuEntityResponse
+  updateMenusMenuItem(data: MenusMenuItemInput!, id: ID!): MenusMenuItemEntityResponse
+  updateNewsletter(data: NewsletterInput!, id: ID!): NewsletterEntityResponse
+  updatePage(data: PageInput!, id: ID!): PageEntityResponse
+  updateProduct(data: ProductInput!, id: ID!): ProductEntityResponse
+  updatePublisherAction(data: PublisherActionInput!, id: ID!): PublisherActionEntityResponse
+  updateRelatedArticle(data: RelatedArticleInput!): RelatedArticleEntityResponse
+  updateRoute(data: RouteInput!, id: ID!): RouteEntityResponse
+  updateScore(data: ScoreInput!, id: ID!): ScoreEntityResponse
+  updateSitemapSitemap(data: SitemapSitemapInput!, id: ID!): SitemapSitemapEntityResponse
+  updateSitemapSitemapCache(data: SitemapSitemapCacheInput!, id: ID!): SitemapSitemapCacheEntityResponse
+  updateTag(data: TagInput!, id: ID!): TagEntityResponse
+  updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
+  updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
+
+  """Update an existing role"""
+  updateUsersPermissionsRole(data: UsersPermissionsRoleInput!, id: ID!): UsersPermissionsUpdateRolePayload
+
+  """Update an existing user"""
+  updateUsersPermissionsUser(data: UsersPermissionsUserInput!, id: ID!): UsersPermissionsUserEntityResponse!
+  upload(field: String, file: Upload!, info: FileInfoInput, ref: String, refId: ID): UploadFileEntityResponse!
+}
+
+type Newsletter {
+  createdAt: DateTime
+  email: String!
+  updatedAt: DateTime
+  users_permissions_user: UsersPermissionsUserEntityResponse
+}
+
+type NewsletterEntity {
+  attributes: Newsletter
+  id: ID
+}
+
+type NewsletterEntityResponse {
+  data: NewsletterEntity
+}
+
+type NewsletterEntityResponseCollection {
+  data: [NewsletterEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input NewsletterFiltersInput {
+  and: [NewsletterFiltersInput]
+  createdAt: DateTimeFilterInput
+  email: StringFilterInput
+  id: IDFilterInput
+  not: NewsletterFiltersInput
+  or: [NewsletterFiltersInput]
+  sitemap_exclude: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+  users_permissions_user: UsersPermissionsUserFiltersInput
+}
+
+input NewsletterInput {
+  email: String
+  sitemap_exclude: Boolean
+  users_permissions_user: ID
+}
+
+input NewsletterSubscriptionInput {
+  email: String
+  recaptchaToken: String
+}
+
+type NewsletterSubscriptionResponse {
+  data: SubscribeNewsletterEntity
+}
+
+type Page {
+  blocks: [PageBlocksDynamicZone]
+  content: String
+  createdAt: DateTime
+  mastheadBanner: UploadFileEntityResponse
+  mastheadTitle: String
+  publishedAt: DateTime
+  seo: ComponentSharedSeo
+  slug: String!
+  title: String!
+  updatedAt: DateTime
+}
+
+union PageBlocksDynamicZone = ComponentArticleEmbedInstagram | ComponentArticleEmbedVideo | ComponentArticleFaq | ComponentArticleImage | ComponentArticleImageCarousel | ComponentArticleImageGallery | ComponentArticleImageWithContent | ComponentArticleInfoBox | ComponentArticleListicleTitle | ComponentArticlePictureWithTag | ComponentArticlePrizeList | ComponentArticleProductList | ComponentArticleProductReview | ComponentArticleQuestionAnswer | ComponentArticleQuestionAnswer2Columns | ComponentArticleRichText | ComponentArticleTipsBox | ComponentArticleVideo | Error
+
+scalar PageBlocksDynamicZoneInput
+
+type PageEntity {
+  attributes: Page
+  id: ID
+}
+
+type PageEntityResponse {
+  data: PageEntity
+}
+
+type PageEntityResponseCollection {
+  data: [PageEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input PageFiltersInput {
+  and: [PageFiltersInput]
+  content: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  mastheadTitle: StringFilterInput
+  not: PageFiltersInput
+  or: [PageFiltersInput]
+  publishedAt: DateTimeFilterInput
+  seo: ComponentSharedSeoFiltersInput
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input PageInput {
+  blocks: [PageBlocksDynamicZoneInput!]
+  content: String
+  mastheadBanner: ID
+  mastheadTitle: String
+  publishedAt: DateTime
+  seo: ComponentSharedSeoInput
+  sitemap_exclude: Boolean
+  slug: String
+  title: String
+}
+
+type Pagination {
+  page: Int!
+  pageCount: Int!
+  pageSize: Int!
+  total: Int!
+}
+
+input PaginationArg {
+  limit: Int
+  page: Int
+  pageSize: Int
+  start: Int
+}
+
+type Product {
+  brand: String
+  createdAt: DateTime
+  description: String
+  image: UploadFileEntityResponse
+  name: String
+  publishedAt: DateTime
+  retailPriceHKD: Float
+  specialPriceHKD: Float
+  updatedAt: DateTime
+  url: String
+}
+
+type ProductEntity {
+  attributes: Product
+  id: ID
+}
+
+type ProductEntityResponse {
+  data: ProductEntity
+}
+
+type ProductEntityResponseCollection {
+  data: [ProductEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ProductFiltersInput {
+  and: [ProductFiltersInput]
+  brand: StringFilterInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: ProductFiltersInput
+  or: [ProductFiltersInput]
+  publishedAt: DateTimeFilterInput
+  retailPriceHKD: FloatFilterInput
+  sitemap_exclude: BooleanFilterInput
+  specialPriceHKD: FloatFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+}
+
+input ProductInput {
+  brand: String
+  description: String
+  image: ID
+  name: String
+  publishedAt: DateTime
+  retailPriceHKD: Float
+  sitemap_exclude: Boolean
+  specialPriceHKD: Float
+  url: String
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type PublisherAction {
+  createdAt: DateTime
+  entityId: Int
+  entitySlug: String
+  executeAt: DateTime
+  mode: String
+  updatedAt: DateTime
+}
+
+type PublisherActionEntity {
+  attributes: PublisherAction
+  id: ID
+}
+
+type PublisherActionEntityResponse {
+  data: PublisherActionEntity
+}
+
+type PublisherActionEntityResponseCollection {
+  data: [PublisherActionEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input PublisherActionFiltersInput {
+  and: [PublisherActionFiltersInput]
+  createdAt: DateTimeFilterInput
+  entityId: IntFilterInput
+  entitySlug: StringFilterInput
+  executeAt: DateTimeFilterInput
+  id: IDFilterInput
+  mode: StringFilterInput
+  not: PublisherActionFiltersInput
+  or: [PublisherActionFiltersInput]
+  sitemap_exclude: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input PublisherActionInput {
+  entityId: Int
+  entitySlug: String
+  executeAt: DateTime
+  mode: String
+  sitemap_exclude: Boolean
+}
+
+type Query {
+  adBanner(id: ID): AdBannerEntityResponse
+  adBanners(filters: AdBannerFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): AdBannerEntityResponseCollection
+  article(id: ID): ArticleEntityResponse
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleEntityResponseCollection
+  bossDiary: BossDiaryEntityResponse
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryEntityResponseCollection
+  category(id: ID): CategoryEntityResponse
+  editor(id: ID): EditorEntityResponse
+  editorListing: EditorListingEntityResponse
+  editors(filters: EditorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): EditorEntityResponseCollection
+  findNewsletterSubscription(id: ID): NewsletterSubscriptionResponse
+  global: GlobalEntityResponse
+  homePage: HomePageEntityResponse
+  i18NLocale(id: ID): I18NLocaleEntityResponse
+  i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
+  informationBox(id: ID): InformationBoxEntityResponse
+  informationBoxes(filters: InformationBoxFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InformationBoxEntityResponseCollection
+  interestedArea(id: ID): InterestedAreaEntityResponse
+  interestedAreas(filters: InterestedAreaFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InterestedAreaEntityResponseCollection
+  interview: InterviewEntityResponse
+  me: UsersPermissionsMe
+  menusMenu(id: ID): MenusMenuEntityResponse
+  menusMenuItem(id: ID): MenusMenuItemEntityResponse
+  menusMenuItems(filters: MenusMenuItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MenusMenuItemEntityResponseCollection
+  menusMenus(filters: MenusMenuFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): MenusMenuEntityResponseCollection
+  newsletter(id: ID): NewsletterEntityResponse
+  newsletters(filters: NewsletterFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): NewsletterEntityResponseCollection
+  page(id: ID): PageEntityResponse
+  pages(filters: PageFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): PageEntityResponseCollection
+  product(id: ID): ProductEntityResponse
+  products(filters: ProductFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProductEntityResponseCollection
+  publisherAction(id: ID): PublisherActionEntityResponse
+  publisherActions(filters: PublisherActionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): PublisherActionEntityResponseCollection
+  relatedArticle: RelatedArticleEntityResponse
+  route(id: ID): RouteEntityResponse
+  routes(filters: RouteFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): RouteEntityResponseCollection
+  score(id: ID): ScoreEntityResponse
+  scores(filters: ScoreFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ScoreEntityResponseCollection
+  sitemapSitemap(id: ID): SitemapSitemapEntityResponse
+  sitemapSitemapCache(id: ID): SitemapSitemapCacheEntityResponse
+  sitemapSitemapCaches(filters: SitemapSitemapCacheFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): SitemapSitemapCacheEntityResponseCollection
+  sitemapSitemaps(filters: SitemapSitemapFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): SitemapSitemapEntityResponseCollection
+  tag(id: ID): TagEntityResponse
+  tags(filters: TagFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TagEntityResponseCollection
+  uploadFile(id: ID): UploadFileEntityResponse
+  uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
+  uploadFolder(id: ID): UploadFolderEntityResponse
+  uploadFolders(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderEntityResponseCollection
+  usersPermissionsRole(id: ID): UsersPermissionsRoleEntityResponse
+  usersPermissionsRoles(filters: UsersPermissionsRoleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsRoleEntityResponseCollection
+  usersPermissionsUser(id: ID): UsersPermissionsUserEntityResponse
+  usersPermissionsUsers(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserEntityResponseCollection
+}
+
+type RelatedArticle {
+  createdAt: DateTime
+  maxNoTag: Int
+  slot: Int!
+  updatedAt: DateTime
+}
+
+type RelatedArticleEntity {
+  attributes: RelatedArticle
+  id: ID
+}
+
+type RelatedArticleEntityResponse {
+  data: RelatedArticleEntity
+}
+
+input RelatedArticleInput {
+  maxNoTag: Int
+  sitemap_exclude: Boolean
+  slot: Int
+}
+
+type ResponseCollectionMeta {
+  pagination: Pagination!
+}
+
+type Route {
+  createdAt: DateTime
+  requestPath: String!
+  type: ENUM_ROUTE_TYPE!
+  updatedAt: DateTime
+  value: String
+}
+
+type RouteEntity {
+  attributes: Route
+  id: ID
+}
+
+type RouteEntityResponse {
+  data: RouteEntity
+}
+
+type RouteEntityResponseCollection {
+  data: [RouteEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input RouteFiltersInput {
+  and: [RouteFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: RouteFiltersInput
+  or: [RouteFiltersInput]
+  requestPath: StringFilterInput
+  sitemap_exclude: BooleanFilterInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  value: StringFilterInput
+}
+
+input RouteInput {
+  requestPath: String
+  sitemap_exclude: Boolean
+  type: ENUM_ROUTE_TYPE
+  value: String
+}
+
+type Score {
+  createdAt: DateTime
+  icon: UploadFileEntityResponse
+  iconFilled: UploadFileEntityResponse
+  name: String
+  publishedAt: DateTime
+  updatedAt: DateTime
+}
+
+type ScoreEntity {
+  attributes: Score
+  id: ID
+}
+
+type ScoreEntityResponse {
+  data: ScoreEntity
+}
+
+type ScoreEntityResponseCollection {
+  data: [ScoreEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ScoreFiltersInput {
+  and: [ScoreFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: ScoreFiltersInput
+  or: [ScoreFiltersInput]
+  publishedAt: DateTimeFilterInput
+  sitemap_exclude: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ScoreInput {
+  icon: ID
+  iconFilled: ID
+  name: String
+  publishedAt: DateTime
+  sitemap_exclude: Boolean
+}
+
+type SitemapSitemap {
+  createdAt: DateTime
+  delta: Int
+  link_count: Int
+  name: String!
+  sitemap_string: String!
+  type: ENUM_SITEMAPSITEMAP_TYPE
+  updatedAt: DateTime
+}
+
+type SitemapSitemapCache {
+  createdAt: DateTime
+  name: String!
+  sitemap_id: Int!
+  sitemap_json: JSON!
+  updatedAt: DateTime
+}
+
+type SitemapSitemapCacheEntity {
+  attributes: SitemapSitemapCache
+  id: ID
+}
+
+type SitemapSitemapCacheEntityResponse {
+  data: SitemapSitemapCacheEntity
+}
+
+type SitemapSitemapCacheEntityResponseCollection {
+  data: [SitemapSitemapCacheEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input SitemapSitemapCacheFiltersInput {
+  and: [SitemapSitemapCacheFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: SitemapSitemapCacheFiltersInput
+  or: [SitemapSitemapCacheFiltersInput]
+  sitemap_id: IntFilterInput
+  sitemap_json: JSONFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input SitemapSitemapCacheInput {
+  name: String
+  sitemap_id: Int
+  sitemap_json: JSON
+}
+
+type SitemapSitemapEntity {
+  attributes: SitemapSitemap
+  id: ID
+}
+
+type SitemapSitemapEntityResponse {
+  data: SitemapSitemapEntity
+}
+
+type SitemapSitemapEntityResponseCollection {
+  data: [SitemapSitemapEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input SitemapSitemapFiltersInput {
+  and: [SitemapSitemapFiltersInput]
+  createdAt: DateTimeFilterInput
+  delta: IntFilterInput
+  id: IDFilterInput
+  link_count: IntFilterInput
+  name: StringFilterInput
+  not: SitemapSitemapFiltersInput
+  or: [SitemapSitemapFiltersInput]
+  sitemap_string: StringFilterInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input SitemapSitemapInput {
+  delta: Int
+  link_count: Int
+  name: String
+  sitemap_string: String
+  type: ENUM_SITEMAPSITEMAP_TYPE
+}
+
+input StringFilterInput {
+  and: [String]
+  between: [String]
+  contains: String
+  containsi: String
+  endsWith: String
+  eq: String
+  eqi: String
+  gt: String
+  gte: String
+  in: [String]
+  lt: String
+  lte: String
+  ne: String
+  nei: String
+  not: StringFilterInput
+  notContains: String
+  notContainsi: String
+  notIn: [String]
+  notNull: Boolean
+  null: Boolean
+  or: [String]
+  startsWith: String
+}
+
+type SubscribeNewsletterEntity {
+  createdAt: String
+  email: String
+  id: Int
+  updatedAt: String
+}
+
+type Tag {
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  createdAt: DateTime
+  name: String!
+  publishedAt: DateTime
+  seo: ComponentSharedSeo
+  slug: String!
+  updatedAt: DateTime
+  wp_id: Int
+}
+
+type TagEntity {
+  attributes: Tag
+  id: ID
+}
+
+type TagEntityResponse {
+  data: TagEntity
+}
+
+type TagEntityResponseCollection {
+  data: [TagEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input TagFiltersInput {
+  and: [TagFiltersInput]
+  articles: ArticleFiltersInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: TagFiltersInput
+  or: [TagFiltersInput]
+  publishedAt: DateTimeFilterInput
+  seo: ComponentSharedSeoFiltersInput
+  sitemap_exclude: BooleanFilterInput
+  slug: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  wp_id: IntFilterInput
+}
+
+input TagInput {
+  articles: [ID]
+  name: String
+  publishedAt: DateTime
+  seo: ComponentSharedSeoInput
+  sitemap_exclude: Boolean
+  slug: String
+  wp_id: Int
+}
+
+type TagRelationResponseCollection {
+  data: [TagEntity!]!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  alternativeText: String
+  caption: String
+  createdAt: DateTime
+  ext: String
+  formats: JSON
+  hash: String!
+  height: Int
+  mime: String!
+  name: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [GenericMorph]
+  size: Float!
+  updatedAt: DateTime
+  url: String!
+  width: Int
+}
+
+type UploadFileEntity {
+  attributes: UploadFile
+  id: ID
+}
+
+type UploadFileEntityResponse {
+  data: UploadFileEntity
+}
+
+type UploadFileEntityResponseCollection {
+  data: [UploadFileEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UploadFileFiltersInput {
+  alternativeText: StringFilterInput
+  and: [UploadFileFiltersInput]
+  caption: StringFilterInput
+  createdAt: DateTimeFilterInput
+  ext: StringFilterInput
+  folder: UploadFolderFiltersInput
+  folderPath: StringFilterInput
+  formats: JSONFilterInput
+  hash: StringFilterInput
+  height: IntFilterInput
+  id: IDFilterInput
+  mime: StringFilterInput
+  name: StringFilterInput
+  not: UploadFileFiltersInput
+  or: [UploadFileFiltersInput]
+  previewUrl: StringFilterInput
+  provider: StringFilterInput
+  provider_metadata: JSONFilterInput
+  sitemap_exclude: BooleanFilterInput
+  size: FloatFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+  width: IntFilterInput
+}
+
+input UploadFileInput {
+  alternativeText: String
+  caption: String
+  ext: String
+  folder: ID
+  folderPath: String
+  formats: JSON
+  hash: String
+  height: Int
+  mime: String
+  name: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  sitemap_exclude: Boolean
+  size: Float
+  url: String
+  width: Int
+}
+
+type UploadFileRelationResponseCollection {
+  data: [UploadFileEntity!]!
+}
+
+type UploadFolder {
+  children(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderRelationResponseCollection
+  createdAt: DateTime
+  files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  name: String!
+  parent: UploadFolderEntityResponse
+  path: String!
+  pathId: Int!
+  updatedAt: DateTime
+}
+
+type UploadFolderEntity {
+  attributes: UploadFolder
+  id: ID
+}
+
+type UploadFolderEntityResponse {
+  data: UploadFolderEntity
+}
+
+type UploadFolderEntityResponseCollection {
+  data: [UploadFolderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UploadFolderFiltersInput {
+  and: [UploadFolderFiltersInput]
+  children: UploadFolderFiltersInput
+  createdAt: DateTimeFilterInput
+  files: UploadFileFiltersInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: UploadFolderFiltersInput
+  or: [UploadFolderFiltersInput]
+  parent: UploadFolderFiltersInput
+  path: StringFilterInput
+  pathId: IntFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input UploadFolderInput {
+  children: [ID]
+  files: [ID]
+  name: String
+  parent: ID
+  path: String
+  pathId: Int
+}
+
+type UploadFolderRelationResponseCollection {
+  data: [UploadFolderEntity!]!
+}
+
+type UsersPermissionsCreateRolePayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsDeleteRolePayload {
+  ok: Boolean!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String! = "local"
+  recaptchaToken: String!
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+  DOBM: Int
+  DOBY: Int
+  areaCode: ENUM_USERSPERMISSIONSUSER_AREACODE
+  articles: ArticleEntityResponseCollection
+  blocked: Boolean
+  confirmed: Boolean
+  email: String
+  id: ID!
+  interested_areas: InterestedAreaEntityResponseCollection
+  phoneNumber: String
+  role: UsersPermissionsMeRole
+  salutation: ENUM_USERSPERMISSIONSUSER_SALUTATION
+  username: String!
+}
+
+type UsersPermissionsMeRole {
+  description: String
+  id: ID!
+  name: String!
+  type: String
+}
+
+type UsersPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsPermission {
+  action: String!
+  createdAt: DateTime
+  role: UsersPermissionsRoleEntityResponse
+  updatedAt: DateTime
+}
+
+type UsersPermissionsPermissionEntity {
+  attributes: UsersPermissionsPermission
+  id: ID
+}
+
+input UsersPermissionsPermissionFiltersInput {
+  action: StringFilterInput
+  and: [UsersPermissionsPermissionFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: UsersPermissionsPermissionFiltersInput
+  or: [UsersPermissionsPermissionFiltersInput]
+  role: UsersPermissionsRoleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+type UsersPermissionsPermissionRelationResponseCollection {
+  data: [UsersPermissionsPermissionEntity!]!
+}
+
+input UsersPermissionsRegisterInput {
+  DOBM: Int
+  DOBY: Int
+  agreement: Boolean!
+  areaCode: ENUM_USERSPERMISSIONSUSER_AREACODE
+  email: String!
+  interested_areas: [String]
+  password: String!
+  phoneNumber: String
+  recaptchaToken: String!
+  salutation: ENUM_USERSPERMISSIONSUSER_SALUTATION
+  username: String!
+}
+
+type UsersPermissionsRole {
+  createdAt: DateTime
+  description: String
+  name: String!
+  permissions(filters: UsersPermissionsPermissionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsPermissionRelationResponseCollection
+  type: String
+  updatedAt: DateTime
+  users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type UsersPermissionsRoleEntity {
+  attributes: UsersPermissionsRole
+  id: ID
+}
+
+type UsersPermissionsRoleEntityResponse {
+  data: UsersPermissionsRoleEntity
+}
+
+type UsersPermissionsRoleEntityResponseCollection {
+  data: [UsersPermissionsRoleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UsersPermissionsRoleFiltersInput {
+  and: [UsersPermissionsRoleFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: UsersPermissionsRoleFiltersInput
+  or: [UsersPermissionsRoleFiltersInput]
+  permissions: UsersPermissionsPermissionFiltersInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  users: UsersPermissionsUserFiltersInput
+}
+
+input UsersPermissionsRoleInput {
+  description: String
+  name: String
+  permissions: [ID]
+  type: String
+  users: [ID]
+}
+
+input UsersPermissionsUpdateMeInput {
+  areaCode: ENUM_USERSPERMISSIONSUSER_AREACODE
+  dobM: Int
+  dobY: Int
+  interested_areas: [String]
+  phoneNumber: String
+  salutation: ENUM_USERSPERMISSIONSUSER_SALUTATION
+  username: String
+}
+
+type UsersPermissionsUpdateMePayload {
+  user: UsersPermissionsMe
+}
+
+type UsersPermissionsUpdateRolePayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsUser {
+  DOBM: Int!
+  DOBY: Int!
+  agreement: Boolean
+  areaCode: ENUM_USERSPERMISSIONSUSER_AREACODE
+  articles(filters: ArticleFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ArticleRelationResponseCollection
+  blocked: Boolean
+  confirmed: Boolean
+  createdAt: DateTime
+  editors(filters: EditorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): EditorRelationResponseCollection
+  email: String!
+  information_boxes(filters: InformationBoxFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InformationBoxRelationResponseCollection
+  interested_areas(filters: InterestedAreaFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InterestedAreaRelationResponseCollection
+  newsletter: NewsletterEntityResponse
+  phoneNumber: String!
+  provider: String
+  resetPasswordTokenSave: String
+  role: UsersPermissionsRoleEntityResponse
+  salutation: ENUM_USERSPERMISSIONSUSER_SALUTATION
+  updatedAt: DateTime
+  username: String!
+}
+
+type UsersPermissionsUserEntity {
+  attributes: UsersPermissionsUser
+  id: ID
+}
+
+type UsersPermissionsUserEntityResponse {
+  data: UsersPermissionsUserEntity
+}
+
+type UsersPermissionsUserEntityResponseCollection {
+  data: [UsersPermissionsUserEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UsersPermissionsUserFiltersInput {
+  DOBM: IntFilterInput
+  DOBY: IntFilterInput
+  agreement: BooleanFilterInput
+  and: [UsersPermissionsUserFiltersInput]
+  areaCode: StringFilterInput
+  articles: ArticleFiltersInput
+  blocked: BooleanFilterInput
+  confirmationToken: StringFilterInput
+  confirmed: BooleanFilterInput
+  createdAt: DateTimeFilterInput
+  editors: EditorFiltersInput
+  email: StringFilterInput
+  id: IDFilterInput
+  information_boxes: InformationBoxFiltersInput
+  interested_areas: InterestedAreaFiltersInput
+  newsletter: NewsletterFiltersInput
+  not: UsersPermissionsUserFiltersInput
+  or: [UsersPermissionsUserFiltersInput]
+  password: StringFilterInput
+  phoneNumber: StringFilterInput
+  provider: StringFilterInput
+  resetPasswordToken: StringFilterInput
+  resetPasswordTokenSave: StringFilterInput
+  role: UsersPermissionsRoleFiltersInput
+  salutation: StringFilterInput
+  sitemap_exclude: BooleanFilterInput
+  updatedAt: DateTimeFilterInput
+  username: StringFilterInput
+}
+
+input UsersPermissionsUserInput {
+  DOBM: Int
+  DOBY: Int
+  agreement: Boolean
+  areaCode: ENUM_USERSPERMISSIONSUSER_AREACODE
+  articles: [ID]
+  blocked: Boolean
+  confirmationToken: String
+  confirmed: Boolean
+  editors: [ID]
+  email: String
+  information_boxes: [ID]
+  interested_areas: [ID]
+  newsletter: ID
+  password: String
+  phoneNumber: String
+  provider: String
+  resetPasswordToken: String
+  resetPasswordTokenSave: String
+  role: ID
+  salutation: ENUM_USERSPERMISSIONSUSER_SALUTATION
+  sitemap_exclude: Boolean
+  username: String
+}
+
+type UsersPermissionsUserRelationResponseCollection {
+  data: [UsersPermissionsUserEntity!]!
+}

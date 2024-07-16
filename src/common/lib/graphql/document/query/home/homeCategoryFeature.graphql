@@ -1,0 +1,20 @@
+query homeCategoryFeature($includeLayout: Boolean = false) {
+  homePage {
+    data {
+      id
+      attributes {
+        CategoryFeature {
+          ... on HomePageCategoryFeatureDynamicZone {
+            ...homePageCategoryFeatureDynamicZoneFragment
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment homePageCategoryFeatureDynamicZoneFragment on HomePageCategoryFeatureDynamicZone {
+  ... on ComponentHomeCategoryFeature {
+    ...componentHomeCategoryFeature
+  }
+}

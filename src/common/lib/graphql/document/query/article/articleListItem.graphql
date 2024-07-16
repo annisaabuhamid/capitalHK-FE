@@ -1,0 +1,17 @@
+query articleListItem(
+  $filters: ArticleFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+  $publicationState: PublicationState = LIVE
+) {
+  articles(filters: $filters, sort: $sort, publicationState: $publicationState, pagination: $pagination) {
+    data {
+      ...ArticleList
+    }
+    meta {
+      pagination {
+        total
+      }
+    }
+  }
+}

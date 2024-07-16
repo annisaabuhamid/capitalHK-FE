@@ -1,0 +1,32 @@
+.category-header-title {
+  @apply font-semibold text-primary;
+  margin-bottom: 15px;
+}
+.sub-categories-wrapper {
+  @apply overflow-auto;
+}
+.sub-categories {
+  @apply flex justify-start items-center w-full;
+  margin-bottom: 24px;
+  gap: 16px;
+  @media screen(lg) {
+    margin-bottom: 26px;
+    gap: 52px;
+  }
+}
+.sub-categories-item {
+  @apply text-center flex-shrink;
+  white-space: nowrap;
+
+  & a div:hover {
+    @apply text-primary transition-all duration-500;
+  }
+
+  & a div:not(:hover) {
+    @apply text-secondary-300 transition-all duration-500;
+  }
+
+  & a .selected:not(:hover) {
+    @apply text-primary;
+  }
+}

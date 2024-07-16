@@ -1,0 +1,30 @@
+query categorySeo($id: ID) {
+  category(id: $id) {
+    data {
+      attributes {
+        seo {
+          metaDescription
+          metaTitle
+          metaImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          metaSocial {
+            socialNetwork
+            title
+            description
+          }
+          keywords
+          metaRobots
+          metaViewport
+        }
+      }
+    }
+  }
+}

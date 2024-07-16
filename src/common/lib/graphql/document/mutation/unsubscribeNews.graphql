@@ -1,0 +1,10 @@
+mutation unsubscribeNews($id: ID!) {
+  unsubscribeNewsletter(id: $id) {
+    data {
+      id
+      email
+      createdAt
+      updatedAt
+    }
+  }
+}

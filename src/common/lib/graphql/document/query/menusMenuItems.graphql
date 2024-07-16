@@ -1,0 +1,23 @@
+query menusMenuItems($sort: [String] = [], $filters: MenusMenuItemFiltersInput, $pagination: PaginationArg = {}) {
+  menusMenuItems(sort: $sort, filters: $filters, pagination: $pagination) {
+    data {
+      id
+      attributes {
+        parent {
+          data {
+            attributes {
+              order
+              title
+              url
+              target
+            }
+          }
+        }
+        order
+        title
+        url
+        target
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+fragment componentArticleQuestionAnswer on ComponentArticleQuestionAnswer {
+  id
+  Question
+  Answer
+  SubAnswer
+}

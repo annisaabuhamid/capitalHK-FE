@@ -1,0 +1,21 @@
+query homeInterview($filters: ArticleFiltersInput) {
+  interview {
+    data {
+      id
+      attributes {
+        url
+        name
+        articles(pagination: { limit: 20 }) {
+          data {
+            ...ArticleBasic
+          }
+        }
+      }
+    }
+  }
+  articles(filters: $filters, sort: ["publishedDate:desc"], pagination: { limit: 20 }) {
+    data {
+      ...ArticleBasic
+    }
+  }
+}

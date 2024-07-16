@@ -1,0 +1,34 @@
+fragment AccountDetailsFragment on UsersPermissionsUserEntity {
+  id
+  attributes {
+    username
+    email
+    DOBM
+    DOBY
+    salutation
+    areaCode
+    phoneNumber
+    agreement
+    provider
+    confirmed
+    blocked
+    interested_areas {
+      data {
+        id
+        attributes {
+          Title
+        }
+      }
+    }
+    role {
+      data {
+        id
+        attributes {
+          name
+          description
+          type
+        }
+      }
+    }
+  }
+}

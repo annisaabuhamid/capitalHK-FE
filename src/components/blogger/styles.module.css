@@ -1,0 +1,11 @@
+.blogger-header-title {
+  @apply font-semibold text-primary;
+  margin-bottom: 15px;
+}
+
+.avatar-list {
+  @apply flex-grow w-full grid justify-between grid-cols-3 xl:grid-cols-6 gap-y-6 gap-[inherit];
+  @media (min-width: 1024px) {
+    @apply gap-9;
+  }
+}

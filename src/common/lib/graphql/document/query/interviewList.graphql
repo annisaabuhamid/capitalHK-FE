@@ -1,0 +1,59 @@
+query interviewList {
+  interview {
+    data {
+      id
+      attributes {
+        articles {
+          data {
+            id
+            attributes {
+              categories {
+                data {
+                  attributes {
+                    name
+                    slug
+                    parentCategory {
+                      data {
+                        attributes {
+                          slug
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              title
+              slug
+              Interviewee {
+                name
+                title
+                portrait {
+                  data {
+                    attributes {
+                      alternativeText
+                      width
+                      height
+                      url
+                      formats
+                    }
+                  }
+                }
+              }
+              keyVisualHorizontal {
+                data {
+                  attributes {
+                    url
+                    height
+                    width
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

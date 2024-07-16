@@ -1,0 +1,13 @@
+query categoryAdsBySlug($filters: CategoryFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
+  categories(filters: $filters, pagination: $pagination, sort: $sort) {
+    data {
+      attributes {
+        ad_banner_side {
+          data {
+            id
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+query allCategoryIds(
+  $filters: CategoryFiltersInput
+  $pagination: PaginationArg = { limit: -1 }
+  $sort: [String] = []
+  $publicationState: PublicationState = LIVE
+) {
+  categories(filters: $filters, pagination: $pagination, sort: $sort, publicationState: $publicationState) {
+    data {
+      id
+    }
+  }
+}

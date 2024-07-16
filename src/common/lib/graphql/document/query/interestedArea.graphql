@@ -1,0 +1,10 @@
+query interestedArea {
+  interestedAreas {
+    data {
+      id
+      attributes {
+        Title
+      }
+    }
+  }
+}

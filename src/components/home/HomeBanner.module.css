@@ -1,0 +1,7 @@
+.bgWrap {
+  @apply aspect-[3/2] lg:aspect-[6/1];
+  position: sticky;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}

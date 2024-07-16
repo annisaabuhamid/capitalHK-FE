@@ -1,0 +1,7 @@
+query accountDetails($id: ID) {
+  usersPermissionsUser(id: $id) {
+    data {
+      ...AccountDetailsFragment
+    }
+  }
+}

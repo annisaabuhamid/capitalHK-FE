@@ -1,0 +1,177 @@
+query homePage {
+  homePage {
+    data {
+      id
+      attributes {
+        ExpertReviewUrl
+        Carousel {
+          ... on ComponentHomeBannerArticle {
+            ...ComponentHomeBannerArticleFragment
+          }
+          ... on ComponentHomeBannerImage {
+            ...ComponentHomeBannerImageFragment
+          }
+          ... on ComponentHomeBannerVideoMp4 {
+            ...ComponentHomeBannerVideoMp4Fragment
+          }
+          ... on ComponentHomeBannerVideoUrl {
+            ...ComponentHomeBannerVideoUrlFragment
+          }
+        }
+        PageTitle
+        seo {
+          metaDescription
+          metaTitle
+          metaImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          metaSocial {
+            socialNetwork
+            title
+            description
+          }
+          keywords
+          metaRobots
+          metaViewport
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentHomeBannerArticleFragment on ComponentHomeBannerArticle {
+  id
+  article {
+    data {
+      attributes {
+        title
+        slug
+        tags(pagination: { limit: 1 }) {
+          data {
+            id
+            attributes {
+              name
+              seo {
+                id
+                metaDescription
+              }
+            }
+          }
+        }
+        categories {
+          data {
+            id
+            attributes {
+              parentCategory {
+                data {
+                  attributes {
+                    slug
+                    name
+                  }
+                }
+              }
+              name
+              slug
+            }
+          }
+        }
+        keyVisualHorizontal {
+          data {
+            id
+            attributes {
+              url
+              width
+              height
+              alternativeText
+              formats
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentHomeBannerImageFragment on ComponentHomeBannerImage {
+  id
+  image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+        formats
+      }
+    }
+  }
+  url
+  target
+  ImageText: text
+}
+
+fragment ComponentHomeBannerVideoMp4Fragment on ComponentHomeBannerVideoMp4 {
+  id
+  video {
+    data {
+      id
+      attributes {
+        url
+        name
+        alternativeText
+      }
+    }
+  }
+  media {
+    data {
+      id
+      attributes {
+        url
+        name
+        width
+        height
+        alternativeText
+        formats
+      }
+    }
+  }
+  videoPoster {
+    data {
+      id
+      attributes {
+        url
+        width
+        height
+        alternativeText
+        formats
+      }
+    }
+  }
+  videoText: text
+}
+
+fragment ComponentHomeBannerVideoUrlFragment on ComponentHomeBannerVideoUrl {
+  id
+  url
+  videoURLText: text
+  media {
+    data {
+      id
+      attributes {
+        name
+        url
+        width
+        height
+        alternativeText
+        formats
+      }
+    }
+  }
+}

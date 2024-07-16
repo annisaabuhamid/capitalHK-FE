@@ -1,0 +1,19 @@
+query homeFeatureTrendingNews {
+  homePage {
+    data {
+      id
+      attributes {
+        featuredSection {
+          id
+          popular_news {
+            data {
+              ... on ArticleEntity {
+                ...ArticleList
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

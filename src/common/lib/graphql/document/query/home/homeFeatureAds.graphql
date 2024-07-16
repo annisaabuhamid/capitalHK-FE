@@ -1,0 +1,15 @@
+query homeFeatureAds {
+  homePage {
+    data {
+      attributes {
+        featuredSection {
+          ad_banner_side {
+            data {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

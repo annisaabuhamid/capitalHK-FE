@@ -1,0 +1,7 @@
+query category($id: ID, $includeLayout: Boolean = true) {
+  category(id: $id) {
+    data {
+      ...CategoryFragment
+    }
+  }
+}

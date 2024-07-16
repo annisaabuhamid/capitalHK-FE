@@ -1,0 +1,36 @@
+query homeTopicSection($includeLayout: Boolean = false) {
+  homePage {
+    data {
+      id
+      attributes {
+        Topic {
+          id
+          url
+          name
+          categories {
+            data {
+              ...HomeTopicSectionExtraCategoryImage
+              ...CategoryFragment
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment HomeTopicSectionExtraCategoryImage on CategoryEntity {
+  attributes {
+    Topic {
+      keyVisualHorizontal {
+        data {
+          attributes {
+            url
+            alternativeText
+            formats
+          }
+        }
+      }
+    }
+  }
+}

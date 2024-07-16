@@ -1,0 +1,13 @@
+query relatedArticleList {
+    relatedArticle {
+        data {
+            id
+            attributes {
+                slot
+                maxNoTag
+                createdAt
+                updatedAt
+            }
+        }
+    }
+}

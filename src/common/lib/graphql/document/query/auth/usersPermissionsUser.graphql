@@ -1,0 +1,31 @@
+query usersPermissionsUser(
+  $id: ID
+  ## $sort: [String] = ["publishedDate:desc"]
+
+  $pagination: PaginationArg = {}
+  $publicationState: PublicationState = LIVE
+) {
+  usersPermissionsUser(id: $id) {
+    data {
+      id
+      attributes {
+        #articles(sort: $sort, publicationState: $publicationState, pagination: $pagination) {
+        articles(publicationState: $publicationState, pagination: $pagination) {
+          data {
+            ...ArticleBasic
+          }
+        }
+        information_boxes(publicationState: $publicationState, pagination: $pagination) {
+          data {
+            ...InformationBoxesBasic
+          }
+        }
+        editors(publicationState: $publicationState, pagination: $pagination) {
+          data {
+            ...EditorFragment
+          }
+        }
+      }
+    }
+  }
+}

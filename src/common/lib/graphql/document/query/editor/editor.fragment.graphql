@@ -1,0 +1,17 @@
+fragment EditorFragment on EditorEntity {
+  id
+  attributes {
+    name
+    slug
+    biography
+    title
+    avatar {
+      data {
+        attributes {
+          url
+          formats
+        }
+      }
+    }
+  }
+}

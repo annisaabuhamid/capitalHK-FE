@@ -1,0 +1,152 @@
+fragment CategoryFragment on CategoryEntity {
+  id
+  attributes {
+    name
+    slug
+    editorPicks {
+      data {
+        id
+      }
+    }
+    bloggerList {
+      data {
+        id
+        attributes {
+          slug
+          name
+          biography
+          avatar {
+            data {
+              attributes {
+                url
+                alternativeText
+                width
+                height
+              }
+            }
+          }
+        }
+      }
+    }
+    pinArticle {
+      data {
+        id
+        attributes {
+          title
+          slug
+          content
+          publishedDate
+          categories {
+            data {
+              id
+              attributes {
+                name
+                slug
+              }
+            }
+          }
+          keyVisualHorizontal {
+            data {
+              attributes {
+                url
+                alternativeText
+                width
+                height
+                formats
+              }
+            }
+          }
+          keyVisualVertical {
+            data {
+              attributes {
+                url
+                alternativeText
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+    }
+    recommendArticles {
+      data {
+        id
+        attributes {
+          title
+          slug
+          publishedAt
+          publishedDate
+          keyVisualHorizontal {
+            data {
+              attributes {
+                url
+                height
+                alternativeText
+                width
+                formats
+              }
+            }
+          }
+          keyVisualVertical {
+            data {
+              attributes {
+                url
+                height
+                alternativeText
+                width
+              }
+            }
+          }
+        }
+      }
+    }
+    articles {
+      data {
+        id
+        attributes {
+          title
+          slug
+          keyVisualVertical {
+            data {
+              attributes {
+                url
+                alternativeText
+                height
+                width
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+    layout @include(if: $includeLayout)
+    Topic {
+      keyVisualHorizontal {
+        data {
+          attributes {
+            url
+            width
+            height
+            formats
+            alternativeText
+          }
+        }
+      }
+    }
+    parentCategory {
+      data {
+        id
+        attributes {
+          name
+          slug
+        }
+      }
+    }
+    seo {
+      metaTitle
+      metaDescription
+    }
+  }
+}

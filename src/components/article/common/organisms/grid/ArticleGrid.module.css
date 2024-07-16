@@ -1,0 +1,16 @@
+.article-grid {
+  @apply grid lg:grid-cols-3 gap-[48px];
+
+  img.image-container {
+    width: 416px;
+    height: 278px;
+  }
+}
+.article-grid-bookmark {
+  @apply grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-9;
+
+  img.image-container {
+    width: 416px;
+    height: 278px;
+  }
+}

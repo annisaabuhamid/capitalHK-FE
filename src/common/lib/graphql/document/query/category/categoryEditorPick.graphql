@@ -1,0 +1,13 @@
+query categoryEditorPick($filters: CategoryFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
+  categories(filters: $filters, pagination: $pagination, sort: $sort) {
+    data {
+      attributes {
+        editorPicks {
+          data {
+            ...ArticleBasic
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+query global {
+  global {
+    data {
+      id
+      attributes {
+        ... on Global {
+          ...GlobalFooterFragment
+        }
+        ... on Global {
+          ...GlobalSocialNetworksFragment
+        }
+      }
+    }
+  }
+}
+
+fragment GlobalFooterFragment on Global {
+  logo {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  Magazine {
+    magazineCover {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+    title
+    ctaLabel
+    url
+    description
+  }
+  companyLogo {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  copyright
+  CustomPages {
+    PageLink {
+      label
+      url
+      target
+    }
+  }
+  shortIntroduction
+  Tags {
+    tags {
+      data {
+        attributes {
+          name
+          slug
+        }
+      }
+    }
+  }
+}
+
+fragment GlobalSocialNetworksFragment on Global {
+  socialNetworks {
+    link {
+      id
+      label
+      url
+      target
+    }
+  }
+}

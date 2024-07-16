@@ -1,0 +1,61 @@
+fragment ArticleList on ArticleEntity {
+  id
+  attributes {
+    title
+    publishedDate
+    slug
+    editorSelect
+    seo {
+      metaDescription
+    }
+    categories {
+      data {
+        attributes {
+          name
+          slug
+          parentCategory {
+            data {
+              attributes {
+                slug
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+    keyVisualHorizontal {
+      data {
+        id
+        attributes {
+          alternativeText
+          url
+          width
+          height
+          formats
+        }
+      }
+    }
+    editor {
+      data {
+        id
+        attributes {
+          name
+          biography
+          isBlogger
+          avatar {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

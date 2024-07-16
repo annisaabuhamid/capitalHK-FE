@@ -1,0 +1,24 @@
+fragment componentHomeCategoryFeature on ComponentHomeCategoryFeature {
+  id
+  pinArticle {
+    data {
+      ... on ArticleEntity {
+        ...ArticleBasic
+      }
+    }
+  }
+  category {
+    data {
+      ... on CategoryEntity {
+        ...CategoryFragment
+      }
+    }
+  }
+  ad_banner_in_between {
+    data {
+      ... on AdBannerEntity {
+        id
+      }
+    }
+  }
+}

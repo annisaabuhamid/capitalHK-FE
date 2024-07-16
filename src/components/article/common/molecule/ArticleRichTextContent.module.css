@@ -1,0 +1,16 @@
+/* Article rich text content */
+.article-rich-text-content {
+  @apply prose w-full max-w-full break-words;
+
+  figure {
+    @apply flex flex-col !w-full;
+  }
+
+  p iframe {
+    @apply w-full aspect-[16/9] h-full;
+  }
+  iframe {
+    @apply w-full aspect-[16/9] h-full;
+  }
+ 
+}

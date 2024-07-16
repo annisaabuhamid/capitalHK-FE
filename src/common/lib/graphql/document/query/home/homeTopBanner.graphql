@@ -1,0 +1,28 @@
+query homeTopBanner {
+  homePage {
+    data {
+      id
+      attributes {
+        HomeTopBanner {
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          mobileImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          url
+          target
+          alternativeText
+        }
+      }
+    }
+  }
+}

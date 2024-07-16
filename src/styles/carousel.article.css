@@ -1,0 +1,92 @@
+.article-carousel.swiper-initialized {
+  --var-pb: 16px;
+  --var-m-bullet-h: 4px;
+  --var-d-bullet-h: 8px;
+  --var-m-button-h: 48px;
+  --var-d-button-h: 73px;
+  padding-bottom: calc(var(--var-pb) + var(--var-m-bullet-h));
+}
+.article-carousel.swiper-horizontal > .swiper-pagination-bullets {
+  position: absolute;
+  bottom: 0;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+}
+.swiper-button {
+  display: flex;
+  position: absolute;
+  top: calc(50% - 50px);
+  z-index: 10;
+  cursor: pointer;
+  color: white;
+  background-color: #000000;
+  /* margin-right: 24px; */
+}
+.article-swiper-button-prev {
+  left: 0;
+}
+.article-swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-disabled {
+  display: none;
+}
+.article-carousel.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  border-radius: 9999px;
+  width: 8px;
+  height: 8px !important;
+  background: #d9d9d9;
+  opacity: 1;
+  margin: 0 2px;
+}
+.article-carousel.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background: #e30909;
+}
+.article-carousel [class^="swiper-button-"] {
+  background-color: #000;
+  opacity: 0.7;
+  width: 48px;
+  height: 72px;
+  top: calc(50% - ((var(--var-pb) + var(--var-m-bullet-h)) / 2));
+  margin-top: calc(0px - (var(--var-m-button-h) / 2));
+}
+.article-carousel [class^="swiper-button-"]::after {
+  font-size: 14px;
+  font-weight: bold;
+  color: white !important;
+}
+.article-carousel.swiper-button-next {
+  right: 0;
+}
+
+.article-carousel.swiper-button-prev {
+  left: 0;
+}
+
+.article-carousel .swiper-wrapper {
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .article-carousel.swiper-initialized {
+    padding-bottom: calc(var(--var-pb) + var(--var-d-bullet-h));
+  }
+
+  .article-carousel [class^="swiper-button-"] {
+    height: var(--var-d-button-h);
+    top: calc(50% - ((var(--var-pb) + var(--var-d-bullet-h)) / 2));
+    margin-top: calc(0px - (var(--var-d-button-h) / 2));
+  }
+
+  .article-carousel.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    height: var(--var-d-bullet-h);
+    /* margin: 0 14px; */
+  }
+
+  .article-carousel [class^="swiper-button-"] {
+    width: 48px;
+    height: 72px;
+  }
+}

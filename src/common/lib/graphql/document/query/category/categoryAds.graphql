@@ -1,0 +1,52 @@
+query categoryAds($id: ID) {
+  category(id: $id) {
+    data {
+      attributes {
+        ad_banner_in_between {
+          data {
+            id
+            attributes {
+              ad_unit_path
+              size_mapping
+              name
+            }
+          }
+        }
+        ad_banner_side {
+          data {
+            id
+            attributes {
+              ad_unit_path
+              size_mapping
+              name
+            }
+          }
+        }
+        parentCategory {
+          data {
+            attributes {
+              ad_banner_in_between {
+                data {
+                  attributes {
+                    ad_unit_path
+                    size_mapping
+                    name
+                  }
+                }
+              }
+              ad_banner_side {
+                data {
+                  attributes {
+                    ad_unit_path
+                    size_mapping
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+query articleSeo(
+  $filters: ArticleFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+  $publicationState: PublicationState = LIVE
+) {
+  articles(filters: $filters, sort: $sort, publicationState: $publicationState, pagination: $pagination) {
+    data {
+      attributes {
+        slug
+        keyVisualHorizontal {
+          data {
+            id
+            attributes {
+              alternativeText
+              url
+              width
+              height
+              formats
+            }
+          }
+        }
+        categories {
+          data {
+            attributes {
+              slug
+              parentCategory {
+                data {
+                  attributes {
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+        seo {
+          metaDescription
+          metaTitle
+          metaImage {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+                formats
+              }
+            }
+          }
+          metaSocial {
+            socialNetwork
+            title
+            description
+          }
+          keywords
+          metaRobots
+          metaViewport
+        }
+      }
+    }
+  }
+}

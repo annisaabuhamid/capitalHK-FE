@@ -1,0 +1,11 @@
+query ads($id: ID!) {
+  adBanner(id: $id) {
+    data {
+      attributes {
+        ad_unit_path
+        size_mapping
+        name
+      }
+    }
+  }
+}

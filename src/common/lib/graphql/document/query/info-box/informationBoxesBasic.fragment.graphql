@@ -1,0 +1,18 @@
+fragment InformationBoxesBasic on InformationBoxEntity {
+  id
+  attributes {
+    location
+    title
+    hours
+    phone
+    remark
+    description
+    users {
+      data {
+        attributes {
+          username
+        }
+      }
+    }
+  }
+}

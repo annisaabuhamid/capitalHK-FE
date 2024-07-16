@@ -1,0 +1,168 @@
+fragment ArticleBasic on ArticleEntity {
+  id
+  attributes {
+    ad_banner_side {
+      data {
+        id
+      }
+    }
+    stockQuote
+    hideKeyVisual
+    seo {
+      metaDescription
+      metaTitle
+      metaImage {
+        data {
+          attributes {
+            url
+            width
+            height
+            alternativeText
+            formats
+          }
+        }
+      }
+      metaSocial {
+        socialNetwork
+        title
+        description
+      }
+      keywords
+      metaRobots
+      metaViewport
+    }
+    categories {
+      data {
+        attributes {
+          name
+          slug
+          parentCategory {
+            data {
+              attributes {
+                slug
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+
+    title
+    publishedDate
+    slug
+    editorSelect
+
+    layout
+    keyVisualHorizontal {
+      data {
+        id
+        attributes {
+          alternativeText
+          url
+          width
+          height
+          formats
+        }
+      }
+    }
+    keyVisualSquare {
+      data {
+        id
+        attributes {
+          alternativeText
+          url
+        }
+      }
+    }
+    Interviewee {
+      name
+      title
+      portrait {
+        data {
+          id
+          attributes {
+            url
+            alternativeText
+            width
+            height
+            formats
+          }
+        }
+      }
+    }
+    editor {
+      data {
+        id
+        attributes {
+          name
+          biography
+          isBlogger
+          avatar {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+    tags {
+      data {
+        id
+        attributes {
+          name
+          slug
+        }
+      }
+    }
+
+    sidenote
+    relatedArticles {
+      data {
+        id
+        attributes {
+          title
+          publishedDate
+          slug
+          keyVisualHorizontal {
+            data {
+              attributes {
+                url
+                height
+                width
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+    otherEventArticles {
+      data {
+        id
+        attributes {
+          title
+          publishedDate
+          slug
+          publishedAt
+          keyVisualHorizontal {
+            data {
+              attributes {
+                url
+                height
+                width
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query FindNewsletterSubscription($id: ID) {
+  findNewsletterSubscription(id: $id) {
+    data {
+      email
+      createdAt
+      updatedAt
+      id
+    }
+  }
+}

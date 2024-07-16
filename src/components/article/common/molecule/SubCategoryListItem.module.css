@@ -1,0 +1,27 @@
+.sub-category-list-item {
+  @apply w-full lg:max-h-[354px] flex flex-col gap-6 lg:gap-9 lg:flex lg:flex-row items-center;
+
+  .item-image {
+    width: 100%;
+
+    @media screen and (min-width: 1024px) {
+      width: 52.6785%;
+    }
+  }
+
+  .image-container {
+    width: 52%;
+  }
+
+  .image-element {
+    @apply max-h-[354px];
+  }
+
+  .item-content {
+    @apply gap-[12px] flex flex-col w-full px-6 lg:w-[48%] lg:py-[55px] lg:px-0 mb-6 lg:mb-0;
+    .h3,
+    .h4 {
+      @apply font-normal;
+    }
+  }
+}

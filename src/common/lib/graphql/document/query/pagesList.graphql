@@ -1,0 +1,423 @@
+query pagesList($filters: PageFiltersInput) {
+  pages(filters: $filters) {
+    data {
+      attributes {
+        blocks {
+          ... on ComponentArticleEmbedInstagram {
+            ...ComponentArticleEmbedInstagramFragment
+          }
+          ... on ComponentArticleEmbedVideo {
+            ...ComponentArticleEmbedVideoFragment
+          }
+          ... on ComponentArticleImage {
+            ...ComponentArticleImageFragment
+          }
+          ... on ComponentArticleImageCarousel {
+            ...ComponentArticleImageCarouselFragment
+          }
+          ... on ComponentArticleImageGallery {
+            ...ComponentArticleImageGalleryFragment
+          }
+          ... on ComponentArticleInfoBox {
+            ...ComponentArticleInfoBoxFragment
+          }
+          ... on ComponentArticleListicleTitle {
+            ...ComponentArticleListicleTitleFragment
+          }
+          ... on ComponentArticlePictureWithTag {
+            ...ComponentArticlePictureWithTagFragment
+          }
+          ... on ComponentArticlePrizeList {
+            ...ComponentArticlePrizeListFragment
+          }
+          ... on ComponentArticleProductReview {
+            ...ComponentArticleProductReviewFragment
+          }
+          ... on ComponentArticleQuestionAnswer {
+            ...ComponentArticleQuestionAnswerFragment
+          }
+          ... on ComponentArticleQuestionAnswer2Columns {
+            ...ComponentArticleQuestionAnswer2ColumnsFragment
+          }
+          ... on ComponentArticleRichText {
+            ...ComponentArticleRichTextFragment
+          }
+          ... on ComponentArticleTipsBox {
+            ...ComponentArticleTipsBoxFragment
+          }
+          ... on ComponentArticleVideo {
+            ...ComponentArticleVideoFragment
+          }
+          ... on ComponentArticleFaq {
+            ...ComponentArticleFaqFragment
+          }
+          ... on ComponentArticleProductList {
+            ...ComponentArticleProductListFragment
+          }
+          ... on ComponentArticleImageWithContent {
+            ...ComponentArticleImageWithContentFragment
+          }
+        }
+        title
+        slug
+        mastheadTitle
+        content
+        mastheadBanner {
+          data {
+            attributes {
+              url
+              alternativeText
+              height
+              width
+            }
+          }
+        }
+        seo {
+          metaTitle
+          metaDescription
+          keywords
+          metaRobots
+          structuredData
+          metaViewport
+          canonicalURL
+          metaSocial {
+            title
+            socialNetwork
+            description
+            image {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentArticleEmbedInstagramFragment on ComponentArticleEmbedInstagram {
+  URL
+}
+
+fragment ComponentArticleEmbedVideoFragment on ComponentArticleEmbedVideo {
+  videoName: name
+  URL
+  video: image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+}
+
+fragment ComponentArticleImageFragment on ComponentArticleImage {
+  image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  caption
+}
+
+fragment ComponentArticleImageCarouselFragment on ComponentArticleImageCarousel {
+  id
+  ImageCarousel {
+    id
+    description
+    url
+    title
+    image {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentArticleImageGalleryFragment on ComponentArticleImageGallery {
+  id
+  ImageGallery {
+    image {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+    description
+    url
+    title
+  }
+}
+
+fragment ComponentArticleInfoBoxFragment on ComponentArticleInfoBox {
+  information_box {
+    data {
+      ...InformationBoxesBasic
+    }
+  }
+}
+
+fragment ComponentArticleListicleTitleFragment on ComponentArticleListicleTitle {
+  Number
+  Title
+  description
+}
+
+fragment ComponentArticlePictureWithTagFragment on ComponentArticlePictureWithTag {
+  Image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  tags {
+    id
+    PositionX
+    PositionY
+    product {
+      data {
+        attributes {
+          name
+          description
+          retailPriceHKD
+          specialPriceHKD
+          url
+          brand
+          image {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentArticlePrizeListFragment on ComponentArticlePrizeList {
+  prizeList {
+    name
+    companyName
+    content1
+    content2
+    companyLogo {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentArticleProductListFragment on ComponentArticleProductList {
+  Products {
+    product {
+      data {
+        attributes {
+          brand
+          name
+          retailPriceHKD
+          specialPriceHKD
+          url
+          description
+          image {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+fragment ComponentArticleProductReviewFragment on ComponentArticleProductReview {
+  ListicleTitle {
+    Number
+    Title
+    description
+  }
+  ImageCarousel {
+    image {
+      data {
+        attributes {
+          url
+          width
+          height
+          alternativeText
+        }
+      }
+    }
+    description
+    url
+    title
+  }
+  ProductRate {
+    Label
+    score
+    Icon {
+      data {
+        attributes {
+          icon {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          iconFilled {
+            data {
+              attributes {
+                url
+                width
+                height
+                alternativeText
+              }
+            }
+          }
+          name
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentArticleQuestionAnswerFragment on ComponentArticleQuestionAnswer {
+  Question
+  Answer
+  SubAnswer
+}
+
+fragment ComponentArticleQuestionAnswer2ColumnsFragment on ComponentArticleQuestionAnswer2Columns {
+  image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  imageCaption
+  showAtRightColumn
+  QuestionAnswers {
+    Question
+    Answer
+    SubAnswer
+  }
+}
+
+fragment ComponentArticleRichTextFragment on ComponentArticleRichText {
+  richText
+}
+
+fragment ComponentArticleTipsBoxFragment on ComponentArticleTipsBox {
+  description
+}
+
+fragment ComponentArticleTopicFragment on ComponentArticleTopic {
+  keyVisualHorizontal {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+}
+
+fragment ComponentArticleVideoFragment on ComponentArticleVideo {
+  video {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+  name
+  ArticleVideoImage: image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+}
+fragment ComponentArticleFaqFragment on ComponentArticleFaq {
+  faq {
+    Question
+    Answer
+    SubAnswer
+  }
+}
+fragment ComponentArticleImageWithContentFragment on ComponentArticleImageWithContent {
+  id
+  showAtRightColumn
+  content
+  image {
+    data {
+      attributes {
+        url
+        width
+        height
+        alternativeText
+      }
+    }
+  }
+}

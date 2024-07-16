@@ -1,0 +1,17 @@
+query homeCategoryColumn($includeLayout: Boolean = false) {
+  homePage {
+    data {
+      id
+      attributes {
+        CategoryColumn {
+          id
+          categories {
+            data {
+              ...CategoryFragment
+            }
+          }
+        }
+      }
+    }
+  }
+}

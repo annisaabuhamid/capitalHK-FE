@@ -1,0 +1,29 @@
+query bossDiary {
+  bossDiary {
+    data {
+      id
+      attributes {
+        name
+        description
+        url
+        portrait {
+          data {
+            id
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+  articles(
+    filters: { categories: { name: { eq: "吳老闆筆記" } } }
+    pagination: { limit: 1 }
+    sort: ["publishedDate:desc"]
+  ) {
+    data {
+      ...ArticleBasic
+    }
+  }
+}

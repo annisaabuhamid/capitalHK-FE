@@ -1,0 +1,13 @@
+query categoryPinArticle($id: ID) {
+  category(id: $id) {
+    data {
+      attributes {
+        pinArticle {
+          data {
+            id
+          }
+        }
+      }
+    }
+  }
+}
